@@ -1,13 +1,13 @@
 # Sistema-de-Streaming-de-peliculas
-El presente sistema es un sistema de reproducci√≥n de pel√≠culas, a trav√©s del cual, cada usuario podr√° registrarse y seleccionar un plan de consumo.Cada plan tendr√° una tarifa mensual y una cantidad de pel√≠culas que el usuario podr√° seleccionar y reproducir.
+El presente sistema es un sistema de reproducciÛn de peliculas, a travÈs del cual, cada usuario podr· registrarse y seleccionar un plan de consumo.Cada plan tendr· una tarifa mensual y una cantidad de pel√≠culas que el usuario podr· seleccionar y reproducir.
 
-##Herramientas utilizadas:
+## Herramientas utilizadas:
 
-###Back-end:
+### Back-end:
 	Sistema de gestiÛn de base de datos: MySQl Workbench 6.3 CE.
 	Lenguaje programaciÛn: Java.
 	
-###Front-end:
+### Front-end:
 	HTML5
 	CSS3 - Framework:Bootstrap v3.3.7
 	JavaScript - Library:jQuery v3.2.0
