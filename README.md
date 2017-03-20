@@ -1,5 +1,5 @@
 # Sistema-de-Streaming-de-peliculas
-El presente sistema es un sistema de reproducción de peliculas, a través del cual, cada usuario podrá registrarse y seleccionar un plan de consumo.Cada plan tendrá una tarifa mensual y una cantidad de pelÃ­culas que el usuario podrá seleccionar y reproducir.
+El presente sistema es un sistema de reproducción de peliculas, a través del cual, cada usuario podrá registrarse y seleccionar un plan de consumo.Cada plan tendrá una tarifa mensual y una cantidad de peliculas que el usuario podrá seleccionar y reproducir.
 
 ## Herramientas utilizadas:
 
