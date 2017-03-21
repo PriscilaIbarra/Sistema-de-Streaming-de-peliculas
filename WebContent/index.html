@@ -12,6 +12,17 @@
 	    <link href="Style/css/indexStyle.css" rel="stylesheet">
 	    <script src="Style/js/bootstrap.js"></script>
 	    <script src="Style/js/jquery-3.2.0.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: none;
+    
+      
+  }
+  </style>
   	</head>
 <!-- NAVBAR
 ================================================== -->
@@ -46,9 +57,38 @@
 
     <!-- Carousel
     ================================================== -->
-    
-
-
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item">
+          <img class="first-slide" src="Style/img/cinema.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Bienvenido</h1>
+              <h1>a</h1>
+               <h1>GMovies.</h1>
+              <h3>Complete sus datos personales y comience a disfrutar del servicio.</h2>
+                 <p><a class="btn btn-lg btn-primary" role="button">Registrarse</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item active">
+          <img class="second-slide" src="Style/img/cinema.jpg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Seleccione un plan de consumo.</h1>
+              <p>Seleccione que películas deseea ver,cuando y dónde.</p>
+              <p><a class="btn btn-lg btn-primary" href="#desplan" role="button">Ver Planes</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></br></br>
+    <!-- /.carousel -->
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -58,7 +98,7 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-circle" src="Style/img/popcornicono.jpg" alt="Generic placeholder image" width="140" height="140">
+      <a name="desplan"><img class="img-circle" src="Style/img/popcornicono.jpg" alt="Generic placeholder image" width="140" height="140"></a>
           <h2>Básico</h2>
           <p>Disfrute de una gran cantidad de películas de acción, aventura,ciencia ficción,comedia,drama y suspenso.Podrá visualizar una larga lista de documentales y recitales en alta calidad.</p>
           <p><a  href="#detalle1"	class="btn btn-default"  role="button">Ver Detalles »</a></p>
@@ -76,7 +116,7 @@
           <p><a class="btn btn-default" href="#detalle3" role="button">Ver Detalles »</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
-
+		</br></br></br></br>
 
       <!-- START THE FEATURETTES -->
 
