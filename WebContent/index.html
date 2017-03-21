@@ -9,6 +9,7 @@
     	<link rel="icon" href="Style/icons/favicon.ico">
     	    <title>GMovies</title>
 	    <link href="Style/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="Style/css/indexStyle.css" rel="stylesheet">
 	    <script src="Style/js/bootstrap.js"></script>
 	    <script src="Style/js/jquery-3.2.0.js"></script>
   	</head>
@@ -60,19 +61,19 @@
           <img class="img-circle" src="Style/img/popcornicono.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Básico</h2>
           <p>Disfrute de una gran cantidad de películas de acción, aventura,ciencia ficción,comedia,drama y suspenso.Podrá visualizar una larga lista de documentales y recitales en alta calidad.</p>
-          <p><a class="btn btn-default"  role="button">Ver Detalles »</a></p>
+          <p><a  href="#detalle1"	class="btn btn-default"  role="button">Ver Detalles »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="Style/img/filmklappeicono.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Estándar</h2>
           <p>Agreguele a su plan una gran variedad de estrenos y peliculas animadas para visualizar en familia.</br>Disfrute al instante de cualquier película en su teléfono, pc o tablet.</p>
-          <p><a class="btn btn-default" href="http://getbootstrap.com/examples/carousel/#" role="button">Ver Detalles »</a></p>
+          <p><a class="btn btn-default" href="#detalle2" role="button">Ver Detalles »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="Style/img/filmreelicono.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Premium</h2>
           <p>Visualice todas las películas en cartelera al instante desde su hogar.Vea una gran variedad de estrenos cuando y donde quiera.</p></br>
-          <p><a class="btn btn-default" href="http://getbootstrap.com/examples/carousel/#" role="button">Ver Detalles »</a></p>
+          <p><a class="btn btn-default" href="#detalle3" role="button">Ver Detalles »</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
@@ -83,8 +84,19 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+       <a name="detalle1"><h2 class="featurette-heading">Plan Básico. <span class="text-muted">A su medida,usted elige.</span></h2></a> 
+         		 <div class="glyphiconPlan1">
+         			 <span class="glyphicon glyphicon-film"  aria-hidden="true"></span></br></br>
+        			 <span class="glyphicon glyphicon-random"  aria-hidden="true"></span></br></br>
+         			 <span class="glyphicon glyphicon-hand-right"  aria-hidden="true"></span></br>
+        			 <span class="glyphicon glyphicon-usd"  aria-hidden="true"></span></br>
+        		 </div>
+      			 <div class="plan1">
+      			 <p class="lead">30 películas.Gran variedad de géneros:drama,acción,comedia,etc.</p>
+      			 <p class="lead">Seleccione las peliculas que usted desee.  </p>
+      			 <p class="lead">10 recitales de sus cantantes favoritos. </p>
+      			 <p class="lead">110 x Mes </p>
+       			 </div>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="Style/img/audience.jpg" data-holder-rendered="true">
@@ -95,8 +107,19 @@
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+           <a name="detalle2"> <h2 class="featurette-heading">Plan Estándar. <span class="text-muted">Todo queda en familia.</span></h2></a>
+         	 <div class="glyphiconPlan2">
+          		<span class="glyphicon glyphicon-film"  aria-hidden="true"></span></br></br>
+          		<span class="glyphicon glyphicon-facetime-video"  aria-hidden="true"></span></br></br>
+          		<span class="glyphicon glyphicon-hand-right"  aria-hidden="true"></span></br></br>
+         		 <span class="glyphicon glyphicon-usd"  aria-hidden="true"></span></br>
+     		 </div>
+     		 <div class="plan2">
+     			 <p class="lead">50 películas.Todos los géneros</p>
+     			 <p class="lead">15 peliculas de animación que usted desee.</p>
+     			 <p class="lead">15 estrenos de nuestra grilla. </p></br>
+    			 <p class="lead">150 x Mes </p>
+     		 </div>
         </div>
         <div class="col-md-5 col-md-pull-7">
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="Style/img/tablet.jpg" data-holder-rendered="true">
@@ -107,9 +130,20 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
+          <a name="detalle3"> <h2 class="featurette-heading">Plan Premium. <span class="text-muted">El cine se queda en casa...</span></h2></a>
+         	  <div class="glyphiconPlan3">
+       		   <span class="glyphicon glyphicon-film"  aria-hidden="true"></span></br></br>
+         	   <span class="glyphicon glyphicon-play"  aria-hidden="true"></span></br></br>
+       		   <span class="glyphicon glyphicon-sunglasses"  aria-hidden="true"></span></br></br>
+       		   <span class="glyphicon glyphicon-usd"  aria-hidden="true"></span>
+     		  </div>
+         	  <div class="plan3">
+          		 <p class="lead">60 películas.Todos los géneros</p>
+          		 <p class="lead">15 estrenos de nuestra grilla.</p>
+          		 <p class="lead">15 peliculas en cartelera. </p></br>
+          		 <p class="lead">250 x Mes </p>
+          	  </div>
+       </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="Style/img/tickets.jpg" data-holder-rendered="true">
         </div>
