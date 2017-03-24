@@ -1,4 +1,6 @@
-@CHARSET "ISO-8859-1";
+@CHARSET "utf-8";
+
+
 .glyphicon {
     font-size: 32px;
 }
@@ -34,7 +36,8 @@
 }
 
 #myCarousel{
-	
 	top:  -100px; 
-}
+	}
 
+
+ 
