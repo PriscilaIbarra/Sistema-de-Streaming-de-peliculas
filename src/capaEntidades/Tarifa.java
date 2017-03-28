@@ -21,5 +21,5 @@ public class Tarifa
 	public void setImporte(Double importe)
 	{
 		this.importe = importe;
-	}
+	} 
 }
