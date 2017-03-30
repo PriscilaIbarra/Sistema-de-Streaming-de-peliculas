@@ -7,12 +7,16 @@
 <link rel="icon" href="Style/icons/favicon.ico">
 <title>Registrarse</title>
  <link href="Style/css/bootstrap.min.css" rel="stylesheet">
- <link href="Style/css/Registrarse.css"   type="text/css"  rel="stylesheet">
+ <style type="text/css"> 
+	@import "Style/css/Registrarse.css"; 
+ </style>
+ 
  </head>
 <body>
 <div>
 		<div id="cont1" class="container col-md-8" >
-			<form class="col-md-8">
+		<form class="col-md-8">
+		<h1>Registrarse</h1>
 				<div class="form-group">
 					<label>Nombre:</label>
 					<input class="form-control" type="text" id="nombre" required>
