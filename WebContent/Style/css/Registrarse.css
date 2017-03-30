@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+html{ background-color:none;   
+     background-image: url(WebContent/Style/img/fondo1.jpg);
+	     -no-repeat center center fixed;
+  		-webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+	  } 
+	  
+label{color:green;}
+
+#cont1{ 
+		background:none;
+	    positon:absolute;
+		top:40px;
+		left:300px;
+		}

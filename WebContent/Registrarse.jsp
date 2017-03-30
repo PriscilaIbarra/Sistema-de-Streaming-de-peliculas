@@ -7,31 +7,75 @@
 <link rel="icon" href="Style/icons/favicon.ico">
 <title>Registrarse</title>
  <link href="Style/css/bootstrap.min.css" rel="stylesheet">
-</head>
+ <link href="Style/css/Registrarse.css"   type="text/css"  rel="stylesheet">
+ </head>
 <body>
 <div>
-		<div class="container">
-			<form>
-				<div class="form-group col-xs-12 col-sm-6 col-md-8">
+		<div id="cont1" class="container col-md-8" >
+			<form class="col-md-8">
+				<div class="form-group">
 					<label>Nombre:</label>
-					<input type="text" id="nombre" required>
+					<input class="form-control" type="text" id="nombre" required>
 				</div>
-				<div class="form-group col-xs-12 col-sm-6 col-md-8">
+				<div class="form-group">
 					<label>Apellido:</label>
-					<input type="text" id="apellido" required>
+					<input class="form-control" type="text" id="apellido" required>
 				</div>
-				<div class="form-group col-xs-12 col-sm-6 col-md-8" >
+				<div class="form-group" >
 					<label>Teléfono:</label>
-					<input type="text" id="tel" required>
-				</div>
-				<div class="form-group col-xs-12 col-sm-6 col-md-8">
-					<label>Email:</label>
-					<input type="email" id="mail"required>
+					<input class="form-control" type="text" id="tel" required>
 				</div>
 				<div class="form-group">
 					<label>Nacimiento:</label>
-					<input type="date" id="fechaNaci" required>
+					<input class="form-control" type="date" id="fechaNaci" required>
 				</div>
+				
+					<label>Domicilio:</label>
+					<div class="form-inline">
+						<select name="provincia" class="form-control" id="provincia" required>
+						<option>Provincia</option>
+						</select>
+						  		<select name="ciudad" class="form-control" id="ciudad" required>
+								<option>Ciudad</option>
+								</select>
+									<select name="calle" class="form-control" id="calle" required >
+										<option>Calle</option>
+										</select>
+										<input type="text" class="form-control" name="nroCalle" id="nroCalle" placeholder="número" > 
+					</div>
+					<br>
+				<div class="form-group">
+					<label>Email:</label>
+					<input class="form-control" type="email" id="mail"required>
+				</div>
+				<div class="form-group">
+					<label>Contraseña:</label>
+					<input class="form-control"  type="password" id="mail"required>
+				</div>
+				<label>Plan:</label>
+				<div class="form-inline">
+						<select class="form-control"name="plan" id="plan" required>
+						<option>Plan</option>
+						</select>
+						<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<input class="form-control" type="text" placeholder="tarifa">
+						<div class="input-group-addon">ARS</div>
+						</div>
+				</div>
+				<br>
+				<label>Tarjeta de Crédito:</label>
+					<div class="form-inline">
+							<select class="form-control" name="tipoTarjeta" id="tipoTarjeta">
+								<option>Tipo</option>
+							</select>
+							<input class="form-control" type="text" placeholder="número" name="nroTarjeta" id="nroTarjeta">
+					</div>
+					
+					<div class="checkbox"><label><input type="checkbox"><a href="">Aceptar Términos y Condiciones</a></label></div>
+						<div class="button">
+							<input type="submit" class="btn btn-primary" value="Registrarse">
+						</div>
 			</form>
 		</div>
 </div>
