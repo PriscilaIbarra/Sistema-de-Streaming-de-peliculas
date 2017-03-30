@@ -10,10 +10,16 @@
  <style type="text/css"> 
 	@import "Style/css/Registrarse.css"; 
  </style>
- 
+ <style type="text/css">
+ @font-face {
+		    font-family:Vtks Revolt ;
+   			src: url("Style/fonts/Vtks Revolt.ttf");
+				}
+ </style>
  </head>
 <body>
-<div>
+<h1 id="titulo"> &nbsp; &nbsp;GMOVIES</h1>
+<div> 
 		<div id="cont1" class="container col-md-8" >
 		<form class="col-md-8">
 		<h1>Registrarse</h1>
