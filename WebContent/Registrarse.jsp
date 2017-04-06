@@ -82,7 +82,7 @@
 							<input class="form-control" type="text" placeholder="número" name="nroTarjeta" id="nroTarjeta">
 					</div>
 					
-					<div class="checkbox"><label><input type="checkbox"><a href="">Aceptar Términos y Condiciones</a></label></div>
+					<div class="checkbox"><label><input type="checkbox" required><a href="">Aceptar Términos y Condiciones</a></label></div>
 						<div class="button">
 							<input type="submit" class="btn btn-primary" value="Registrarse">
 						</div>

@@ -3,9 +3,18 @@ import java.util.*;
 
 public class Tarifa
 {
+	private Integer idTarifa;
 	private Calendar fechaVi;
 	private Double importe;
 	
+	public void setIdTarifa(Integer idt)
+	{
+		this.idTarifa=idt;
+	}
+	public Integer getIdTarifa()
+	{
+		return this.idTarifa;
+	}
 	public Calendar getFechaVi() 
 	{
 		return fechaVi;
@@ -22,4 +31,5 @@ public class Tarifa
 	{
 		this.importe = importe;
 	} 
+	
 }
