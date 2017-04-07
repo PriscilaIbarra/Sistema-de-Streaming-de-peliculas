@@ -48,16 +48,17 @@
 				
 					<label>Domicilio:</label>
 					<div class="form-inline">
-						<select name="provincia" class="form-control" id="provincia" required>
-						<option>Provincia</option>
-						</select>
+						  		<select name="provincia" class="form-control" id="provincia" required>
+								<option>Provincia</option>
+								</select>
+						  		
 						  		<select name="ciudad" class="form-control" id="ciudad" required>
 								<option>Ciudad</option>
 								</select>
 									<select name="calle" class="form-control" id="calle" required >
 										<option>Calle</option>
 										</select>
-										<input type="text" class="form-control" name="nroCalle" id="nroCalle" placeholder="número" > 
+										<input type="text" class="form-control" name="nroCalle" id="nroCalle" placeholder="número" >
 					</div>
 					<br>
 				<div class="form-group">
@@ -70,26 +71,35 @@
 				</div>
 				<label>Plan:</label>
 				<div class="form-inline">
-						<select class="form-control"name="plan" id="plan" required>
-							<%
-		 					try
-							{ControladorPlanes cp=new ControladorPlanes();
-		 				    ArrayList<Plan> pls=cp.buscarPlanes();
-		 					if( pls != null)
-		 					{
-		 						for(int i=0 ; i < pls.size();i=i+1)
-		 						{
-		 						 %><option value="<%=pls.get(i).getIdPlan()%>" ><%=pls.get(i).getDescPlan()%> </option><%
-		 								 						
-		 						}
-		 				
-		 					}
-		 					
-		 					else{
-		 						%> <div color="white" class="alert alert-warning alert-dismissable fade in">
- 								   <a href="Registrarse.jsp" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    							   <strong>Sin planes disponibles!</strong></div><%}
-		 					}
+							<%   
+							  try
+							   {   ControladorPlanes cp=new ControladorPlanes();
+	 				   			   ArrayList<Plan> pls=cp.buscarPlanes();
+							   	   if( pls != null)
+		 						   {   %><div class="input-group">
+		 							   <div class="input-group-addon">$</div>
+		 						       <select class="form-control" name="plan"  required>
+		 						      <% for(Plan p:pls)
+		 							    { %>
+		 							       		<optgroup id="idPlan" value="<%=p.getIdPlan() %>" label="<%=p.getDescPlan() %>"> 
+     												  <option id="idTarifa" value="<%=p.getLt().get(0).getIdTarifa() %>"><%=p.getLt().get(0).getImporte()%></option> 
+      											</optgroup> 
+     									 <% 
+		 							    }
+		 							   %>
+		 							   <select/>
+		 						       <div class="input-group-addon">ARS</div>
+									   </div><%
+		 					  	    }
+							   	   else{%><div class="input-group">
+	 							       <div class="input-group-addon">$</div>
+	 						           <select class="form-control" name="plan" id="tarifa" required>
+	 						           <option style="color:red">Sin planes disponibles</option>
+	 						           <select/>
+		 						       <div class="input-group-addon">ARS</div>
+									   </div> 
+	 						           <%}
+		 					  }
 							catch(ApplicationException e)
 							{ %> <div class="alert alert-warning alert-dismissable fade in">
  								 <a href="index.html" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -97,19 +107,14 @@
  								 </div><%
 							}
 		 					%>
-						<select/>
-									<div class="input-group">
-									<div class="input-group-addon">$</div>
-									<input class="form-control" type="text" placeholder="tarifa">
-									<div class="input-group-addon">ARS</div>
-									</div> 
+						
 				</div>
 				<br>
 				<label>Tarjeta de Crédito:</label>
 					<div class="form-inline">
 							<select class="form-control" name="tipoTarjeta" id="tipoTarjeta">
-								<%
-								   ControladorTarjetas ct=new ControladorTarjetas();
+								<% try
+								   {ControladorTarjetas ct=new ControladorTarjetas();
 								   ArrayList<TipoTarjeta>tpt=ct.buscarTipoTajetas();
 								   if(tpt!=null)
 								   {	for(TipoTarjeta tt : tpt)
@@ -117,7 +122,8 @@
 									   		String dt=tt.getDescripcion()+" "+ tt.getEntCrediticia();
 									   		%><option value="<%=tt.getIdTipTar()%>"><%=dt%></option><%
 								   		}	 
-								   }
+								   }}
+									catch(ApplicationException e){}
 								%>
 							</select>
 							<input class="form-control" type="text" placeholder="número" name="nroTarjeta" id="nroTarjeta">

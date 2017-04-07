@@ -1,9 +1,10 @@
 package capaEntidades;
-
+import java.util.*;
 public class Provincia 
 {
 	private Integer idP;
 	private String descP;
+	private ArrayList<Ciudad>ciudades;
 
 	public Integer getIdP()
 	{
@@ -20,6 +21,14 @@ public class Provincia
 	public void setDescP(String descP)
 	{
 		this.descP = descP;
+	}
+	public ArrayList<Ciudad> getCiudades() 
+	{
+		return ciudades;
+	}
+	public void setCiudades(ArrayList<Ciudad> ciudades) 
+	{
+		this.ciudades = ciudades;
 	}
 	
 }
