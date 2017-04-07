@@ -1,3 +1,8 @@
+<%@ page import="capaNegocio.*" %>
+<%@ page import="capaEntidades.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="util.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,12 +21,13 @@
    			src: url("Style/fonts/Vtks Revolt.ttf");
 				}
  </style>
+ 	
  </head>
 <body>
 <h1 id="titulo"> &nbsp; &nbsp;GMOVIES</h1>
 <div> 
 		<div id="cont1" class="container col-md-8" >
-		<form class="col-md-8">
+		<form  class="col-md-8">
 		<h1>Registrarse</h1>
 				<div class="form-group">
 					<label>Nombre:</label>
@@ -65,19 +71,54 @@
 				<label>Plan:</label>
 				<div class="form-inline">
 						<select class="form-control"name="plan" id="plan" required>
-						<option>Plan</option>
-						</select>
-						<div class="input-group">
-						<div class="input-group-addon">$</div>
-						<input class="form-control" type="text" placeholder="tarifa">
-						<div class="input-group-addon">ARS</div>
-						</div>
+							<%
+		 					try
+							{ControladorPlanes cp=new ControladorPlanes();
+		 				    ArrayList<Plan> pls=cp.buscarPlanes();
+		 					if( pls != null)
+		 					{
+		 						for(int i=0 ; i < pls.size();i=i+1)
+		 						{
+		 						 %><option value="<%=pls.get(i).getIdPlan()%>" ><%=pls.get(i).getDescPlan()%> </option><%
+		 								 						
+		 						}
+		 				
+		 					}
+		 					
+		 					else{
+		 						%> <div color="white" class="alert alert-warning alert-dismissable fade in">
+ 								   <a href="Registrarse.jsp" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    							   <strong>Sin planes disponibles!</strong></div><%}
+		 					}
+							catch(ApplicationException e)
+							{ %> <div class="alert alert-warning alert-dismissable fade in">
+ 								 <a href="index.html" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  								 <strong>Error!</strong>Imposible Conectar con base de datos!
+ 								 </div><%
+							}
+		 					%>
+						<select/>
+									<div class="input-group">
+									<div class="input-group-addon">$</div>
+									<input class="form-control" type="text" placeholder="tarifa">
+									<div class="input-group-addon">ARS</div>
+									</div> 
 				</div>
 				<br>
 				<label>Tarjeta de Crédito:</label>
 					<div class="form-inline">
 							<select class="form-control" name="tipoTarjeta" id="tipoTarjeta">
-								<option>Tipo</option>
+								<%
+								   ControladorTarjetas ct=new ControladorTarjetas();
+								   ArrayList<TipoTarjeta>tpt=ct.buscarTipoTajetas();
+								   if(tpt!=null)
+								   {	for(TipoTarjeta tt : tpt)
+								   		{   
+									   		String dt=tt.getDescripcion()+" "+ tt.getEntCrediticia();
+									   		%><option value="<%=tt.getIdTipTar()%>"><%=dt%></option><%
+								   		}	 
+								   }
+								%>
 							</select>
 							<input class="form-control" type="text" placeholder="número" name="nroTarjeta" id="nroTarjeta">
 					</div>
