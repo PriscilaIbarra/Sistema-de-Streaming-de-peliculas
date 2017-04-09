@@ -21,7 +21,6 @@
    			src: url("Style/fonts/Vtks Revolt.ttf");
 				}
  </style>
- 	
  </head>
 <body>
 <h1 id="titulo"> &nbsp; &nbsp;GMOVIES</h1>
@@ -39,31 +38,46 @@
 				</div>
 				<div class="form-group" >
 					<label>Teléfono:</label>
-					<input class="form-control" type="text" id="tel" required>
+					<div class="input-group">
+ 					 <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-earphone"></span></span>
+  						<input class="form-control" type="text" id="tel" required>
+					</div>
 				</div>
 				<div class="form-group">
 					<label>Nacimiento:</label>
 					<input class="form-control" type="date" id="fechaNaci" required>
 				</div>
 				
-					<label>Domicilio:</label>
+					<label>Ubicación:</label>
 					<div class="form-inline">
-						  		<select name="provincia" class="form-control" id="provincia" required>
-								<option>Provincia</option>
-								</select>
-						  		
-						  		<select name="ciudad" class="form-control" id="ciudad" required>
-								<option>Ciudad</option>
-								</select>
-									<select name="calle" class="form-control" id="calle" required >
-										<option>Calle</option>
-										</select>
-										<input type="text" class="form-control" name="nroCalle" id="nroCalle" placeholder="número" >
-					</div>
-					<br>
+							   <select name="provincia" onchange="buscarC()" class="form-control" id="idprovincia" required>
+								<% ContPro cpc= new ContPro();
+						  		   ArrayList<Provincia> pcias=cpc.buscarPcias();
+						  		   for(Provincia pro:pcias)
+						  		   {
+						  			   pro.setCiudades(ContPro.buscaCiu(pro.getIdP()));
+						  		       for(Ciudad c:pro.getCiudades())
+						  		       {
+						  		    	   c.setCalles(ContPro.buscaCa(c.getIdCiudad()));
+						  		       }
+						  		   }
+						  		 
+						  		    for(Provincia p:pcias)
+						  		   { %><optgroup  label="<%=p.getDescP()%>"><% 
+						  					 for(Ciudad c:p.getCiudades())
+						  					{%>	<option id="idCiudad" value="<%=c.getIdCiudad()%>"><%=c.getDescripcion() %></option><% }
+						  			 %></optgroup><% 
+						  		   }
+						  			  %></select><% 
+						  		%>
+				   	</div>
+					<br> 
 				<div class="form-group">
 					<label>Email:</label>
+					<div class="input-group">
+					 <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
 					<input class="form-control" type="email" id="mail"required>
+					</div>
 				</div>
 				<div class="form-group">
 					<label>Contraseña:</label>
@@ -76,7 +90,7 @@
 							   {   ControladorPlanes cp=new ControladorPlanes();
 	 				   			   ArrayList<Plan> pls=cp.buscarPlanes();
 							   	   if( pls != null)
-		 						   {   %><div class="input-group">
+		 						   {   %><div class="input-group"> 
 		 							   <div class="input-group-addon">$</div>
 		 						       <select class="form-control" name="plan"  required>
 		 						      <% for(Plan p:pls)

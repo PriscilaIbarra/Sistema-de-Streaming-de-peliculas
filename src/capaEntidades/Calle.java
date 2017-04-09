@@ -23,7 +23,7 @@ public class Calle
 	{
 		this.descripcion = descripcion;
 	}
-	public Ciudad getP()
+	public Ciudad getC()
 	{
 		return c;
 	}

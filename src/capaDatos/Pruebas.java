@@ -4,23 +4,22 @@ import util.ApplicationException;
 
 import java.util.*;
 import capaEntidades.*;
-public class Pruebas {
+public class Pruebas
+{
 
 	public static void main(String[] args) throws ApplicationException
 	{
-		ControladorPlanes cp=new ControladorPlanes();
-		    ArrayList<Plan> pls=cp.buscarPlanes();
-			if( pls != null)
-			{System.out.println("pasa");
-				for(int i=0 ; i < pls.size();i=i+1)
-				{
-					System.out.print(pls.get(i).getDescPlan());
-				}
-			}
-			else
-			{   System.out.println("sin planes");}
+		Integer a=1;
+		ArrayList<Ciudad> lc=ContPro.buscaCiu(a);
+		if(lc!=null)
+		{for(Ciudad c:lc)
+		{System.out.println("entra");
+			System.out.println(c.getDescripcion().toString());
+		}
+		}else{System.out.println("array vacio");}
+	}
 			
 
-	}
-
 }
+
+
