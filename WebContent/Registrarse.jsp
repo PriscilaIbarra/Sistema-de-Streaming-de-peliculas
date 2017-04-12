@@ -47,29 +47,35 @@
 					<label>Nacimiento:</label>
 					<input class="form-control" type="date" id="fechaNaci" required>
 				</div>
-				
+				   <div>
 					<label>Ubicación:</label>
 					<div class="form-inline">
-							   <select name="provincia" onchange="buscarC()" class="form-control" id="idprovincia" required>
+							   <select name="provincia"  class="form-control" id="idprovincia" required>
 								<% ContPro cpc= new ContPro();
 						  		   ArrayList<Provincia> pcias=cpc.buscarPcias();
 						  		   for(Provincia pro:pcias)
 						  		   {
-						  			   pro.setCiudades(ContPro.buscaCiu(pro.getIdP()));
-						  		       for(Ciudad c:pro.getCiudades())
+						  			   pro.setLocalidades(ContPro.buscaCiu(pro.getIdP()));
+						  		       for(Localidad c:pro.getLocalidades())
 						  		       {
-						  		    	   c.setCalles(ContPro.buscaCa(c.getIdCiudad()));
+						  		    	   c.setCalles(ContPro.buscaCa(c.getIdLocalidad()));
 						  		       }
 						  		   }
 						  		 
 						  		    for(Provincia p:pcias)
 						  		   { %><optgroup  label="<%=p.getDescP()%>"><% 
-						  					 for(Ciudad c:p.getCiudades())
-						  					{%>	<option id="idCiudad" value="<%=c.getIdCiudad()%>"><%=c.getDescripcion() %></option><% }
+						  					 for(Localidad l:p.getLocalidades())
+						  					{%>	<option id="idLocalidad" value="<%=l.getIdLocalidad()%>"><%=l.getDescripcion() %></option><%}
 						  			 %></optgroup><% 
 						  		   }
 						  			  %></select><% 
 						  		%>
+				   	</div>
+				   	<div class="form-group">
+				   		<input type="text" class="form-control" id="calle">
+				   	</div> 
+				   	<div class="form-group">
+				   	    <input type="text" class="form-control" id="nroCalle" placeholder="n° calle">
 				   	</div>
 					<br> 
 				<div class="form-group">

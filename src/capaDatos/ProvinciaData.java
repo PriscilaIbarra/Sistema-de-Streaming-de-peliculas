@@ -17,8 +17,8 @@ public class ProvinciaData
 			while(rta.next())
 			{
 				Provincia p=new Provincia();
-				p.setIdP(rta.getInt("idProvincia"));
-				p.setDescP(rta.getString("descripcion"));
+				p.setIdP(rta.getInt("id"));
+				p.setDescP(rta.getString("nombre"));
 				ps.add(p);
 			}
 		}
@@ -39,22 +39,25 @@ public class ProvinciaData
 	
 	
 	
-	public ArrayList<Ciudad> buscarCds(Integer idPro) throws ApplicationException
+	public ArrayList<Localidad> buscarCds(Integer idPro) throws ApplicationException
 	{
-		ArrayList<Ciudad>lisc=null;
+		ArrayList<Localidad>lisc=null;
 		PreparedStatement stmt=null;
 		ResultSet rta=null;
 		try
-		{   lisc=new ArrayList<Ciudad>();
+		{   lisc=new ArrayList<Localidad>();
 			stmt=FabricaDeConexion.getFabrica().getConexion().prepareStatement(
-					"select * from ciudades where idProvincia=?");
+					"select loc.id as idLocalidad,loc.nombre as desL from provincias pro"
+							+"  inner join departamentos dpto on pro.id=dpto.provincia_id" 
+							+"  inner join localidades loc on dpto.id=loc.departamento_id"
+							+"  where pro.id=?");
 			stmt.setInt(1,idPro);
 			rta=stmt.executeQuery();
 			while(rta.next())
 			{
-				Ciudad c=new Ciudad();
-				c.setIdCiudad(rta.getLong("idCiudad"));
-				c.setDescripcion(rta.getString("descripcion"));
+				Localidad c=new Localidad();
+				c.setIdLocalidad(rta.getInt("idLocalidad"));
+				c.setDescripcion(rta.getString("desL"));
 				lisc.add(c);
 			}
 			

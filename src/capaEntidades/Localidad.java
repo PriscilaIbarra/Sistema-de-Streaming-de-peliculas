@@ -2,17 +2,17 @@ package capaEntidades;
 
 import java.util.ArrayList;
 
-public class Ciudad 
+public class Localidad 
 {
-	private long idCiudad;
+	private int idLocalidad;
 	private String descripcion;
 	private Provincia pro;
 	private ArrayList<Calle> lc=null;
 	
-	public void setIdCiudad(long id)
-	{this.idCiudad=id;}
-	public long getIdCiudad()
-	{return this.idCiudad;}
+	public void setIdLocalidad(int id)
+	{this.idLocalidad=id;}
+	public int getIdLocalidad()
+	{return this.idLocalidad;}
 	public void setDescripcion(String des)
 	{this.descripcion=des;}
 	public String getDescripcion()

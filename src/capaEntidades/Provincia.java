@@ -4,7 +4,7 @@ public class Provincia
 {
 	private Integer idP;
 	private String descP;
-	private ArrayList<Ciudad>ciudades;
+	private ArrayList<Localidad>localidades;
 
 	public Integer getIdP()
 	{
@@ -22,13 +22,13 @@ public class Provincia
 	{
 		this.descP = descP;
 	}
-	public ArrayList<Ciudad> getCiudades() 
+	public ArrayList<Localidad> getLocalidades() 
 	{
-		return ciudades;
+		return localidades;
 	}
-	public void setCiudades(ArrayList<Ciudad> ciudades) 
+	public void setLocalidades(ArrayList<Localidad> ciudades) 
 	{
-		this.ciudades = ciudades;
+		this.localidades = ciudades;
 	}
 	
 }

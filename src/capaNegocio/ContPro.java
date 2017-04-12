@@ -13,16 +13,16 @@ public class ContPro
 		return pcias;
 	}
 	
-	public static ArrayList<Ciudad> buscaCiu(Integer idP) throws ApplicationException
+	public static ArrayList<Localidad> buscaCiu(Integer idP) throws ApplicationException
 	{
 		ProvinciaData dt=new ProvinciaData();
-		ArrayList<Ciudad> lc=dt.buscarCds(idP);
+		ArrayList<Localidad> lc=dt.buscarCds(idP);
 		return lc;
 	}
 	
 	public static ArrayList<Calle> buscaCa(Long idC) throws ApplicationException
 	{
-		CiudadData cd=new CiudadData();
+		LocalidadData cd=new LocalidadData();
 		Integer idCi=Integer.valueOf(idC.intValue());
 		ArrayList<Calle>lca=cd.buscarCa(idCi);
 		return lca;

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import util.ApplicationException;
 import capaEntidades.*;
 
-public class CiudadData 
+public class LocalidadData 
 {
 	public ArrayList<Calle> buscarCa(Integer idCi) throws ApplicationException
 	{   ArrayList<Calle> cal=null;

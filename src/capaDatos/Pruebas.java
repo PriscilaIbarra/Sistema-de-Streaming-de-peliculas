@@ -10,9 +10,9 @@ public class Pruebas
 	public static void main(String[] args) throws ApplicationException
 	{
 		Integer a=1;
-		ArrayList<Ciudad> lc=ContPro.buscaCiu(a);
+		ArrayList<Localidad> lc=ContPro.buscaCiu(a);
 		if(lc!=null)
-		{for(Ciudad c:lc)
+		{for(Localidad c:lc)
 		{System.out.println("entra");
 			System.out.println(c.getDescripcion().toString());
 		}

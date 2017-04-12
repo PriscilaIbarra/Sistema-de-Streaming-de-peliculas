@@ -4,7 +4,7 @@ public class Calle
 {
 	private Integer idCalle;
 	private String descripcion;
-	private Ciudad c;
+	private Localidad c;
 	
 	public Integer getIdCalle() 
 	{
@@ -23,12 +23,12 @@ public class Calle
 	{
 		this.descripcion = descripcion;
 	}
-	public Ciudad getC()
+	public Localidad getLoc()
 	{
 		return c;
 	}
 	
-	public void setC(Ciudad c)
+	public void setLoc(Localidad c)
 	{
 		this.c = c;
 	}
