@@ -11,6 +11,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="icon" href="Style/icons/favicon.ico">
 <title>Registrarse</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
  <link href="Style/css/bootstrap.min.css" rel="stylesheet">
  <style type="text/css"> 
 	@import "Style/css/Registrarse.css"; 
@@ -47,19 +49,15 @@
 					<label>Nacimiento:</label>
 					<input class="form-control" type="date" id="fechaNaci" required>
 				</div>
-				   <div>
+				   <div class="form-group">
 					<label>Ubicación:</label>
-					<div class="form-inline">
-							   <select name="provincia"  class="form-control" id="idprovincia" required>
+							   <select name="provincia"  class="form-control col-md-4" id="idprovincia" required>
 								<% ContPro cpc= new ContPro();
 						  		   ArrayList<Provincia> pcias=cpc.buscarPcias();
 						  		   for(Provincia pro:pcias)
 						  		   {
 						  			   pro.setLocalidades(ContPro.buscaCiu(pro.getIdP()));
-						  		       for(Localidad c:pro.getLocalidades())
-						  		       {
-						  		    	   c.setCalles(ContPro.buscaCa(c.getIdLocalidad()));
-						  		       }
+						  		      
 						  		   }
 						  		 
 						  		    for(Provincia p:pcias)
@@ -70,24 +68,28 @@
 						  		   }
 						  			  %></select><% 
 						  		%>
-				   	</div>
-				   	<div class="form-group">
-				   		<input type="text" class="form-control" id="calle">
-				   	</div> 
-				   	<div class="form-group">
-				   	    <input type="text" class="form-control" id="nroCalle" placeholder="n° calle">
-				   	</div>
-					<br> 
+					</div>
+						</br></br>
+						  	<div class="form-inline">	
+						  	<label>Calle:</label>
+						  	<div>
+				   			<input type="text" class="form-control col-md-2" id="calle" required>
+				   			</div>
+				   			<div>
+				   			<input type="text" class="form-control col-md-2" id="nroCalle" placeholder="N°" required>
+				   			</div>
+				   			</div>
+				   	</br></br>
 				<div class="form-group">
 					<label>Email:</label>
 					<div class="input-group">
 					 <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
-					<input class="form-control" type="email" id="mail"required>
+					<input class="form-control" type="text" id="mail" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label>Contraseña:</label>
-					<input class="form-control"  type="password" id="mail"required>
+					<input class="form-control"  type="password" id="mail" required>
 				</div>
 				<label>Plan:</label>
 				<div class="form-inline">
@@ -99,14 +101,14 @@
 		 						   {   %><div class="input-group"> 
 		 							   <div class="input-group-addon">$</div>
 		 						       <select class="form-control" name="plan"  required>
-		 						      <% for(Plan p:pls)
-		 							    { %>
+		 						     	 <% for(Plan p:pls)
+		 							    	{ %>
 		 							       		<optgroup id="idPlan" value="<%=p.getIdPlan() %>" label="<%=p.getDescPlan() %>"> 
      												  <option id="idTarifa" value="<%=p.getLt().get(0).getIdTarifa() %>"><%=p.getLt().get(0).getImporte()%></option> 
       											</optgroup> 
-     									 <% 
-		 							    }
-		 							   %>
+     										 <% 
+		 							    	}
+		 							     %>
 		 							   <select/>
 		 						       <div class="input-group-addon">ARS</div>
 									   </div><%
@@ -132,7 +134,7 @@
 				<br>
 				<label>Tarjeta de Crédito:</label>
 					<div class="form-inline">
-							<select class="form-control" name="tipoTarjeta" id="tipoTarjeta">
+							<select class="form-control" required name="tipoTarjeta" id="tipoTarjeta">
 								<% try
 								   {ControladorTarjetas ct=new ControladorTarjetas();
 								   ArrayList<TipoTarjeta>tpt=ct.buscarTipoTajetas();
@@ -146,7 +148,7 @@
 									catch(ApplicationException e){}
 								%>
 							</select>
-							<input class="form-control" type="text" placeholder="número" name="nroTarjeta" id="nroTarjeta">
+							<input class="form-control" type="text" placeholder="número" name="nroTarjeta" id="nroTarjeta" required>
 					</div>
 					
 					<div class="checkbox"><label><input type="checkbox" required><a href="">Aceptar Términos y Condiciones</a></label></div>
