@@ -10,7 +10,7 @@ public class Usuario
 	private Domicilio dom;
 	private String telefono;
 	private String mail;
-	private Calendar fechaNacimiento;
+	private String fechaNacimiento;
 	private Tarjeta tarUs;
 	private Plan planUs;
 	private ArrayList<Pelicula> peliculasPlan;
@@ -87,12 +87,12 @@ public class Usuario
     	return this.mail;
     }
     
-    public void setFechaNacimiento(Calendar fe)
+    public void setFechaNacimiento(String fe)
     {
     	this.fechaNacimiento=fe;
     }
     
-    public Calendar getFechaNacimiento()
+    public String getFechaNacimiento()
     {
     	return this.fechaNacimiento;
     }

@@ -12,4 +12,5 @@ public class Fecha
 		fecha.trim();
 		return fecha; 
 	}
+	
 }
