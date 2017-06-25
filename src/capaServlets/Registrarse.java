@@ -1,12 +1,15 @@
 package capaServlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import capaEntidades.*;
+import capaNegocio.ControladorServicioUs;
 
 @WebServlet("/Registrarse")
 public class Registrarse extends HttpServlet 
@@ -37,6 +40,9 @@ public class Registrarse extends HttpServlet
 		dom.setNroCa(Integer.parseInt(request.getParameter("nroCalle").trim()));
 		Tarifa t =new Tarifa();
 		t.setIdTarifa(Integer.parseInt(request.getParameter("idTarifa").trim()));
+		Plan p=new Plan();
+		p.setLt(new ArrayList<Tarifa>());
+		p.getLt().add(t);
 		TipoTarjeta tpj=new TipoTarjeta();
 		tpj.setIdTipTar(Integer.parseInt(request.getParameter("tipoTarjeta").trim()));
 		Tarjeta tar=new Tarjeta();
@@ -47,7 +53,16 @@ public class Registrarse extends HttpServlet
 		us.setApellido(request.getParameter("apellido").trim());
 		us.setTelefono(request.getParameter("tel").trim());
 		us.setFechaNacimiento(request.getParameter("fechaNaci").trim());
-		
+		us.setEmail(request.getParameter("mail").trim());
+		us.setPassword(us.encriptar(request.getParameter("passConf").trim())); 
+		us.setDomicilio(dom);
+		us.setTarjeta(tar);
+		us.setPlan(p);
+		us.setEstado("habilitado");
+		if(ControladorServicioUs.RegistrarUsuario(us))
+		{
+			response.sendRedirect("index.html");
+		}
 		
 	
 	}

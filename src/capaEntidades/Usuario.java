@@ -1,5 +1,7 @@
 package capaEntidades;
 import java.util.*;
+import util.Encriptador;
+
 
 public class Usuario
 { 
@@ -136,6 +138,11 @@ public class Usuario
     public String getEstado()
     {
     	return this.estado;
+    }
+    
+    public String encriptar(String str)
+    {
+    	return Encriptador.Encriptar(str);
     }
     
 }

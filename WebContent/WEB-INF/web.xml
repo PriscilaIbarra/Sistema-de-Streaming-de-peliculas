@@ -5,11 +5,7 @@
     <servlet-name>Registrarse</servlet-name>
     <servlet-class>capaServlets.Registrarse</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>Registrarse</servlet-name>
-     <url-pattern>/</url-pattern>
-  </servlet-mapping>
-  <welcome-file-list>
+   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
 </web-app>

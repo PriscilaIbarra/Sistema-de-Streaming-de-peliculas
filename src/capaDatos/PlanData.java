@@ -16,11 +16,11 @@ public class PlanData
 		{
 			stmt=FabricaDeConexion.getFabrica().getConexion().prepareStatement(
 					"SELECT pla.idPlan as idPlan,pla.descripcion as descripcion,"+
-							"ta.idTarifa as idTarifa,ta.importe as importe,"
-							+"ta.fechaVigencia as fechaVigencia"
+							" ta.idTarifa as idTarifa,ta.importe as importe,"
+							+" ta.fechaVigencia as fechaVigencia"
 							+" FROM planes pla "
-							+"INNER JOIN tarifas ta ON pla.idPlan=ta.idPlan "
-							+"WHERE ? >= ta.fechaVigencia AND ? <ta.fechaFinVigencia;");
+							+" INNER JOIN tarifas ta ON pla.idPlan=ta.idPlan "
+							+" WHERE ? >= ta.fechaVigencia AND ? <ta.fechaFinVigencia;");
 		 
 		  String fhoy=Fecha.GetFechaHora();
 		  stmt.setString(1,fhoy);

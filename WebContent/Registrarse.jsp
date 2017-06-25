@@ -73,6 +73,16 @@
  </script>
  
  <script>
+ function validarpass()
+ {
+	  var p=document.getElementById("pass").value;
+	  if(p.length<=45)
+	  {document.getElementById("pass").style.color='#00cc00';}
+	  else{document.getElementById("pass").style.color='#ff0000';}
+ }
+ </script>
+ 
+ <script>
  	function confirmarCon()
  	{
  		var pass=document.getElementById("pass").value;
@@ -108,7 +118,7 @@
  
  <script>
  function validarFormulario()
- {   if(document.getElementById("nombre").style.color=='#00cc00' && document.getElementById("apellido").style.color=='#00cc00' && document.getElementById("telefono").style.color=='#00cc00' && document.getElementById("fecha").style.color=='#00cc00' && document.getElementById("mail").style.color=='#00cc00' && document.getElementById("passConf").style.color=='#00cc00' && document.getElementById("nroTar").style.color=='#00cc00' && document.getElementById("nCalle").style.color=='#00cc00')
+ {   if(document.getElementById("nombre").style.color=='#00cc00' && document.getElementById("apellido").style.color=='#00cc00' && document.getElementById("telefono").style.color=='#00cc00' && document.getElementById("fecha").style.color=='#00cc00' && document.getElementById("mail").style.color=='#00cc00' && document.getElementById("pass").style.color=='#00cc00' && document.getElementById("passConf").style.color=='#00cc00' && document.getElementById("nroTar").style.color=='#00cc00' && document.getElementById("nCalle").style.color=='#00cc00')
  	{ document.getElementById("btnRegistrarse").disabled=false; }
     else{document.getElementById("btnRegistrarse").disabled = true;
   		 alert("Campo/s incorrectos.Asegurece de completar todos los campos!");}
@@ -190,7 +200,7 @@
 				</div>
 				<div class="form-group">
 					<label>Contraseña:</label>
-					<input class="form-control"  type="password" name="pass" id="pass" required>
+					<input class="form-control" oninput="validarpass()"  type="password" name="pass" id="pass" required>
 				</div>
 				<div class="form-group">
 					<label>Confirmar Contraseña:</label>
@@ -205,12 +215,12 @@
 							   	   if( pls != null)
 		 						   {   %><div class="input-group"> 
 		 							   <div class="input-group-addon">$</div>
-		 						       <select class="form-control"  name="idTarifa"  required>
+		 						       <select class="form-control" name="idTarifa">
 		 						     	 <% for(Plan p:pls)
 		 							    	{ %>
 		 							       		<optgroup  label="<%=p.getDescPlan() %>"> 
-     												  <option  value="<%=p.getLt().get(0).getIdTarifa() %>"><%=p.getLt().get(0).getImporte()%></option> 
-      											</optgroup> 
+     												  <option value="<%=p.getLt().get(0).getIdTarifa() %>"><%=p.getLt().get(0).getImporte()%></option> 
+      											</optgroup>
      										 <% 
 		 							    	}
 		 							     %>
