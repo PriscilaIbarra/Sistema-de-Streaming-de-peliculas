@@ -1,6 +1,4 @@
 package capaEntidades;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.util.*;
 import util.Encriptador;
 
