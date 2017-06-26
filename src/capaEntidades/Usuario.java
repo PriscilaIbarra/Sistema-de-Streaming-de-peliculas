@@ -1,4 +1,6 @@
 package capaEntidades;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.*;
 import util.Encriptador;
 
@@ -141,8 +143,9 @@ public class Usuario
     }
     
     public String encriptar(String str)
-    {
-    	return Encriptador.Encriptar(str);
+    {   
+    	String pass=Encriptador.Encriptar(str);  	
+    	return pass;
     }
     
 }

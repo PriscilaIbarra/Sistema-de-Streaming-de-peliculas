@@ -118,10 +118,10 @@
  
  <script>
  function validarFormulario()
- {   if(document.getElementById("nombre").style.color=='#00cc00' && document.getElementById("apellido").style.color=='#00cc00' && document.getElementById("telefono").style.color=='#00cc00' && document.getElementById("fecha").style.color=='#00cc00' && document.getElementById("mail").style.color=='#00cc00' && document.getElementById("pass").style.color=='#00cc00' && document.getElementById("passConf").style.color=='#00cc00' && document.getElementById("nroTar").style.color=='#00cc00' && document.getElementById("nCalle").style.color=='#00cc00')
- 	{ document.getElementById("btnRegistrarse").disabled=false; }
-    else{document.getElementById("btnRegistrarse").disabled = true;
-  		 alert("Campo/s incorrectos.Asegurece de completar todos los campos!");}
+ {  // if(document.getElementById("nombre").style.color=='#00cc00' && document.getElementById("apellido").style.color=='#00cc00' && document.getElementById("telefono").style.color=='#00cc00' && document.getElementById("fecha").style.color=='#00cc00' && document.getElementById("mail").style.color=='#00cc00' && document.getElementById("pass").style.color=='#00cc00' && document.getElementById("passConf").style.color=='#00cc00' && document.getElementById("nroTar").style.color=='#00cc00' && document.getElementById("nCalle").style.color=='#00cc00')
+ //	{ document.getElementById("btnRegistrarse").disabled=false; }
+   // else{document.getElementById("btnRegistrarse").disabled = true;
+  	//	 alert("Campo/s incorrectos.Asegurece de completar todos los campos!");}
  }
  </script>
  

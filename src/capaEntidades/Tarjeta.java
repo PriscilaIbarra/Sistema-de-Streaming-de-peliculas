@@ -3,7 +3,7 @@ package capaEntidades;
 public class Tarjeta
 {
 	private Integer idTarj;
-	private Long nroTar;
+	private String nroTar;
 	private TipoTarjeta tt;
 	
 	public Integer getIdTarj() 
@@ -14,11 +14,11 @@ public class Tarjeta
 	{
 		this.idTarj = idTarj;
 	}
-	public Long getNroTar()
+	public String getNroTar()
 	{
 		return nroTar;
 	}
-	public void setNroTar(Long nroTar)
+	public void setNroTar(String nroTar)
 	{
 		this.nroTar = nroTar;
 	}
