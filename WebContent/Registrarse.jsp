@@ -133,7 +133,7 @@
 		    font-family:Vtks Revolt ;
    			src: url("Style/fonts/Vtks Revolt.ttf");
 				}
- </style>
+ </style> 
  </head>
 <body>
 <h1 id="titulo"> &nbsp; &nbsp;GMOVIES</h1>
