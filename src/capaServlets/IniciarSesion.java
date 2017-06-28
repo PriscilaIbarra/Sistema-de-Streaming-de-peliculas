@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import capaEntidades.*;
+import capaNegocio.*;
 
 @WebServlet("/IniciarSesion")
 public class IniciarSesion extends HttpServlet {
@@ -25,8 +29,24 @@ public class IniciarSesion extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{//El archivo jsp no puede tener el mismo nombre que el servlet porque tira error
-	
+		String rta=null;
 		doGet(request, response);
+		Usuario u=new Usuario();
+		u.setEmail(request.getParameter("email").trim());
+		u.setPassword(u.encriptar(request.getParameter("pass").trim()));
+		ControladorServicioUs c =new ControladorServicioUs();
+		Long res=c.iniciarSesion(u);
+		if(res==-1)
+		{rta="Email o Contraseña incorrectos.";}
+		else{  if(res==-2)
+			   {rta="Usuario inhabilitado.";}
+		       else{ HttpSession sesion=request.getSession(true);
+		       		 sesion.setAttribute("idUsuario",res);
+		       		 response.sendRedirect("PanelPrincipal.jsp");
+		           }	
+			}
+		
+		request.setAttribute("rta",rta);
 	}
 
 }

@@ -137,6 +137,39 @@ private static Integer GetIdPlan(Plan p) throws ApplicationException
 }
 
 
+
+public Usuario getUsuario(Usuario u) throws SQLException, ApplicationException
+{
+  PreparedStatement stmt=null;
+  ResultSet rs=null;
+  Usuario ub=null;
+  try {
+	  	stmt=FabricaDeConexion.getFabrica().getConexion().prepareStatement("select idUsuario,estado from usuarios where mail=? and password=?");
+	  	stmt.setString(1,u.getEmail());
+	  	stmt.setString(2,u.getPassword());
+	  	rs=stmt.executeQuery();
+	  	while(rs.next())
+	  	{
+	  		ub=new Usuario();
+	  		ub.setNroUsuario((long) rs.getInt("idUsuario"));
+	  		ub.setEstado(rs.getString("estado"));
+	  	}
+	 } 
+  catch (SQLException e)
+  {e.printStackTrace();} 
+  catch (ApplicationException e)
+  {e.printStackTrace();}
+  finally{	if(stmt!=null)
+  			{stmt.close();}
+            if(rs!=null)
+            {rs.close();}
+            FabricaDeConexion.getFabrica().releaseConn();
+         }
+  return ub;
+}
+
+
+
 }
 
 

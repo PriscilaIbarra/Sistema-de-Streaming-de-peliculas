@@ -11,4 +11,17 @@ public class ControladorServicioUs
     	else
     	{ return false;}
     }
+    
+    public Long iniciarSesion(Usuario us)
+    {	
+    	if(us==null)
+    	{return (long) -1;}
+    	else
+    	{   if(us.getEstado().compareToIgnoreCase("habilitado")==0)
+    		{
+    			return us.getNroUsuario();
+    		}
+    	   else{return (long)-2;}
+    	}
+    }
 }
