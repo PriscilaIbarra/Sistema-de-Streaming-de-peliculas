@@ -23,4 +23,15 @@ label{color:white;}
 	    		positon:absolute;
 				top:10px;
 				left:375px;
-			}	 
+			}
+			
+a{color: white;}	 
+
+a:hover{color: white;
+        text-decoration: underline;}   
+        
+#lrc{position:relative;
+	 left:400px;}         
+
+  
+  

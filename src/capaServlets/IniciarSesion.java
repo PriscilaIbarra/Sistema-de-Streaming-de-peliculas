@@ -1,5 +1,4 @@
 package capaServlets;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import capaEntidades.*;
 import capaNegocio.*;
 
@@ -41,12 +39,11 @@ public class IniciarSesion extends HttpServlet {
 		else{  if(res==-2)
 			   {rta="Usuario inhabilitado.";}
 		       else{ HttpSession sesion=request.getSession(true);
-		       		 sesion.setAttribute("idUsuario",res);
+		    	     sesion.setAttribute("idUsuario",res);
 		       		 response.sendRedirect("PanelPrincipal.jsp");
 		           }	
 			}
-		
-		request.setAttribute("rta",rta);
+		 	
 	}
 
 }

@@ -16,25 +16,53 @@
    						   src: url("Style/fonts/Vtks Revolt.ttf");
 						}
 		</style>
-</head>
+		 <script>
+		 function validarMail()
+ 		{
+			 var mail=document.getElementById("email").value;
+			 var expresionRegular=/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
+			 if(expresionRegular.test(mail))
+			 {document.getElementById("email").style.color='#00cc00';}
+			 else{document.getElementById("email").style.color='#ff0000';}
+		 }
+		 </script>
+		 <script>
+ 		function validarpass()
+ 		{
+		  var p=document.getElementById("pass").value;
+		  if(p.length<=45)
+		  {document.getElementById("pass").style.color='#00cc00';}
+		  else{document.getElementById("pass").style.color='#ff0000';}
+ 		}
+ </script>
+ </head>
 	<body>
+	<%
+		//String rta=(String)session.getAttribute("rta");
+	    //String pag="IniSesion.jsp";
+	    //String etiquetai="<a href=";
+		//if(rta!=null)
+		//{System.out.println("<div class="+"alert alert-danger"+">"+"<strong>"+rta+"</strong>"+ etiquetai +'"'+pag+'"' + "class="+'"'+"alert-link"+'"'+">X</a>"+"</div>");}
+	%>
 		<h1 id="titulo"> &nbsp; &nbsp; GMOVIES</h1> 
 			<div id="contenedor" class="container col-md-8">
-				<form action="IniciarSesion" method="POST" class="col-md-8">
+				<form action="IniciarSesion" method="post" class="col-md-8">
 					<h1>Iniciar Sesión</h1>
 						<div class="form-group">
 							<label>Email:</label>
-							<input class="form-control col-md-6" type="text" name="email" required>
+							<input class="form-control col-md-6" type="text" name="email" oninput="validarMail()" required id="email">
 						</div>
 						<div class="form-group">
 							<label>Contraseña:</label>
-							<input class="form-control col-md-6" type="password" name="pass" required>
+							<input class="form-control col-md-6" type="password" name="pass" oninput="validarpass()" id="pass" required>
 						</div>
-						<br><br>
+						<div id="lrc">
+						<a href="">Olvidaste tu contraseña?</a>
+						</div>
 						<div>
 						<input type="submit" value="Ingresar" class="btn btn-primary col-md-6">
 						</div>
-				</form>
+				</form> 
 			</div>
 	</body>
 </html>

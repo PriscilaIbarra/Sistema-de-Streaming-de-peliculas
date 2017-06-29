@@ -12,16 +12,18 @@ public class ControladorServicioUs
     	{ return false;}
     }
     
-    public Long iniciarSesion(Usuario us)
-    {	
-    	if(us==null)
-    	{return (long) -1;}
+    public Long iniciarSesion(Usuario usu)
+    {	Long rta=(long)0;
+        Usuario us=CatalogoDeUsuarios.BuscarUsuario(usu);
+       	if(us==null)
+    	{ rta=(long)-1;}
     	else
     	{   if(us.getEstado().compareToIgnoreCase("habilitado")==0)
     		{
-    			return us.getNroUsuario();
+    			rta=us.getNroUsuario();
     		}
-    	   else{return (long)-2;}
+    	   else{rta=(long)-2;}
     	}
+       return rta; 
     }
 }
