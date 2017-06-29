@@ -24,6 +24,6 @@ public class ControladorServicioUs
     		}
     	   else{rta=(long)-2;}
     	}
-       return rta; 
+       return rta;  
     }
 }

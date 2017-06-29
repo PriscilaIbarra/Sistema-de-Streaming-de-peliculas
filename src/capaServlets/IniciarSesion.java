@@ -38,12 +38,12 @@ public class IniciarSesion extends HttpServlet {
 		{rta="Email o Contraseña incorrectos.";}
 		else{  if(res==-2)
 			   {rta="Usuario inhabilitado.";}
-		       else{ HttpSession sesion=request.getSession(true);
-		    	     sesion.setAttribute("idUsuario",res);
+		       else{ request.getSession(true).setAttribute("idUsuario",res);
 		       		 response.sendRedirect("PanelPrincipal.jsp");
 		           }	
 			}
-		 	
+		 
+  		 	
 	}
 
 }

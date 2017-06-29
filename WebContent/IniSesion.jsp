@@ -37,13 +37,7 @@
  </script>
  </head>
 	<body>
-	<%
-		//String rta=(String)session.getAttribute("rta");
-	    //String pag="IniSesion.jsp";
-	    //String etiquetai="<a href=";
-		//if(rta!=null)
-		//{System.out.println("<div class="+"alert alert-danger"+">"+"<strong>"+rta+"</strong>"+ etiquetai +'"'+pag+'"' + "class="+'"'+"alert-link"+'"'+">X</a>"+"</div>");}
-	%>
+	 
 		<h1 id="titulo"> &nbsp; &nbsp; GMOVIES</h1> 
 			<div id="contenedor" class="container col-md-8">
 				<form action="IniciarSesion" method="post" class="col-md-8">
