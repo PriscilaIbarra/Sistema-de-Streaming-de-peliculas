@@ -23,7 +23,8 @@
 			 var expresionRegular=/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
 			 if(expresionRegular.test(mail))
 			 {document.getElementById("email").style.color='#00cc00';}
-			 else{document.getElementById("email").style.color='#ff0000';}
+			 else{document.getElementById("email").style.color='#ff0000';
+			 	  document.getElementById("boton").disabled = true;}
 		 }
 		 </script>
 		 <script>
@@ -31,10 +32,12 @@
  		{
 		  var p=document.getElementById("pass").value;
 		  if(p.length<=45)
-		  {document.getElementById("pass").style.color='#00cc00';}
+		  {document.getElementById("pass").style.color='#00cc00';
+		  	document.getElementById("boton").disabled = false;}
 		  else{document.getElementById("pass").style.color='#ff0000';}
- 		}
+		 }
  		</script>
+ 		
  		<script>
  		function recargar()
  		{
@@ -55,7 +58,7 @@
 	 %>
 		<h1 id="titulo"> &nbsp; &nbsp; GMOVIES</h1> 
 			<div id="contenedor" class="container col-md-8">
-				<form action="IniciarSesion" method="post" class="col-md-8">
+				<form  action="IniciarSesion" method="post" class="col-md-8">
 					<h1>Iniciar Sesión</h1>
 						<div class="form-group">
 							<label>Email:</label>
@@ -63,13 +66,13 @@
 						</div>
 						<div class="form-group">
 							<label>Contraseña:</label>
-							<input class="form-control col-md-6" type="password" name="pass" oninput="validarpass()" id="pass" required>
+							<input class="form-control col-md-6"  type="password" name="pass" oninput="validarpass()" id="pass" required>
 						</div>
 						<div id="lrc">
 						<a href="">Olvidaste tu contraseña?</a>
 						</div>
 						<div>
-						<input type="submit" value="Ingresar" class="btn btn-primary col-md-6">
+						<input type="submit" value="Ingresar"  id="boton" class="btn btn-primary col-md-6">
 						</div>
 				</form> 
 			</div>
