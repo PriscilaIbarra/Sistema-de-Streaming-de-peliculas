@@ -59,11 +59,15 @@ public class Registrarse extends HttpServlet
 		us.setTarjeta(tar);
 		us.setPlan(p);
 		us.setEstado("habilitado");
-		try {if(ControladorServicioUs.RegistrarUsuario(us))
-				{response.sendRedirect("index.html");
-			     }else{response.sendRedirect("Registrarse.jsp");}
-			    } catch (ApplicationException e)
+		String rta=null;
+		try {	if(ControladorServicioUs.RegistrarUsuario(us))
+				{rta="Usuario Registrado con exito!";}
+			    else{rta="Error al intentar registrar usuario!!";}
+		    }			    
+		catch (ApplicationException e)
 		     {e.printStackTrace();}
+		request.getSession().setAttribute("msj",rta);
+		response.sendRedirect("Registrarse.jsp");
 	}
 
 }

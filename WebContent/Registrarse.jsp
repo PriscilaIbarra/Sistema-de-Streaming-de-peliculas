@@ -20,7 +20,8 @@
 	  var expresionRegular=/[A-Za-z\s]{4,45}$/i; //nombre valido:4 a 45 caracteres solo lestras Mayusculas o minuscula y espacios en blanco
 	  if(expresionRegular.test(nombre))
 	  {document.getElementById("nombre").style.color='#00cc00';}
-	  else{document.getElementById("nombre").style.color='#ff0000';}
+	  else{document.getElementById("nombre").style.color='#ff0000';
+	 }
  	} 
  </script>
  
@@ -105,6 +106,17 @@
 	 else{document.getElementById("nroTar").style.color='#ff0000';}
  }
  </script>
+ 
+ <script>
+ function validarCalle()
+ {
+	  var calle=document.getElementById("calle").value;
+	  var expresionRegular=/[A-Za-z\s]{4,45}$/i; 
+	  if(expresionRegular.test(calle))
+	  {document.getElementById("calle").style.color='#00cc00';}
+	  else{document.getElementById("calle").style.color='#ff0000';}
+ }
+ </script>
  <script>
  function validarNC()
  {
@@ -118,10 +130,19 @@
  
  <script>
  function validarFormulario()
- {  // if(document.getElementById("nombre").style.color=='#00cc00' && document.getElementById("apellido").style.color=='#00cc00' && document.getElementById("telefono").style.color=='#00cc00' && document.getElementById("fecha").style.color=='#00cc00' && document.getElementById("mail").style.color=='#00cc00' && document.getElementById("pass").style.color=='#00cc00' && document.getElementById("passConf").style.color=='#00cc00' && document.getElementById("nroTar").style.color=='#00cc00' && document.getElementById("nCalle").style.color=='#00cc00')
- //	{ document.getElementById("btnRegistrarse").disabled=false; }
-   // else{document.getElementById("btnRegistrarse").disabled = true;
-  	//	 alert("Campo/s incorrectos.Asegurece de completar todos los campos!");}
+ {   
+	var cnombre=document.getElementById("nombre").style.color;
+	var capellido=document.getElementById("apellido").style.color;
+	var ctelefono=document.getElementById("telefono").style.color;
+	var cfecha=document.getElementById("fecha").style.color;
+	var cmail=document.getElementById("mail").style.color;
+	var cpass=document.getElementById("pass").style.color;
+	var cpassConf=document.getElementById("passConf").style.color;
+    var cnroTar=document.getElementById("nroTar").style.color;
+    var ccalle=document.getElementById("calle").style.color;
+    var cncalle=document.getElementById("nCalle").style.color;
+	alert(cnombre,capellido,ctelefono,cfecha,cmail,cpass,cpassConf,cnroTar,ccalle,cncalle);
+   
  }
  </script>
  
@@ -136,10 +157,25 @@
  </style> 
  </head>
 <body>
-<h1 id="titulo"> &nbsp; &nbsp;GMOVIES</h1>
+ <h1 id="titulo"> &nbsp; &nbsp;GMOVIES</h1>
 <div> 
 		<div id="cont1" class="container col-md-8" >
 		<form action="Registrarse" method="POST"  class="col-md-8">
+		<%
+	 	String msj=(String)session.getAttribute("msj");
+	 	if(msj!=null)
+		{if(msj.compareTo("Usuario Registrado con exito!")==0)
+		{	
+			%><div id="mensaje"  class="alert alert-success">
+  			<%=msj %><a href="IniSesion.jsp"  class="close" data-dismiss="alert" aria-label="close">x</a></div>	<%	
+	 	}
+	 	else
+	    {	%><div id="mensaje"  class="alert alert-danger">
+				<%=msj %><a href="index.html"  class="close" data-dismiss="alert" aria-label="close">x</a></div> <%
+	    }
+		}
+	 	session.removeAttribute("msj");
+	    %>
 		<h1>Registrarse</h1>
 				<div class="form-group">
 					<label>Nombre:</label>
@@ -184,7 +220,7 @@
 						  	<div class="form-inline">	
 						  	<label>Calle:</label>
 						  	<div>
-				   			<input type="text" class="form-control col-md-2" name="calle" required>
+				   			<input type="text" oninput="validarCalle()" class="form-control col-md-2" name="calle" required>
 				   			</div>
 				   			<div>
 				   			<input type="text" oninput="validarNC()" class="form-control col-md-2" name="nroCalle" placeholder="N°" id="nCalle" required>
@@ -266,12 +302,13 @@
 							<input class="form-control" oninput="validarTarjeta()" type="text" placeholder="número" name="nroTarjeta" id="nroTar" required>
 					</div>
 					
-					<div class="checkbox"><label><input onclick="validarFormulario()" id="chekcB" type="checkbox" required><a href="">Aceptar Términos y Condiciones</a></label></div>
+					<div class="checkbox"><label><input  id="chekc"  type="checkbox" required><a href="">Aceptar Términos y Condiciones</a></label></div>
 						<div class="button">
-							<input type="submit" id="btnRegistrarse" class="btn btn-primary" value="Registrarse">
+							<input type="submit"  id="btnRegistrarse" class="btn btn-primary" value="Registrarse">
 						</div>
 			</form>
 		</div>
 </div>
+
 </body>
 </html>
