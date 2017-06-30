@@ -128,24 +128,7 @@
  }
  </script>
  
- <script>
- function validarFormulario()
- {   
-	var cnombre=document.getElementById("nombre").style.color;
-	var capellido=document.getElementById("apellido").style.color;
-	var ctelefono=document.getElementById("telefono").style.color;
-	var cfecha=document.getElementById("fecha").style.color;
-	var cmail=document.getElementById("mail").style.color;
-	var cpass=document.getElementById("pass").style.color;
-	var cpassConf=document.getElementById("passConf").style.color;
-    var cnroTar=document.getElementById("nroTar").style.color;
-    var ccalle=document.getElementById("calle").style.color;
-    var cncalle=document.getElementById("nCalle").style.color;
-	alert(cnombre,capellido,ctelefono,cfecha,cmail,cpass,cpassConf,cnroTar,ccalle,cncalle);
-   
- }
- </script>
- 
+  
  <style type="text/css" > 
 	@import "Style/css/Registrarse.css"; 
  </style>

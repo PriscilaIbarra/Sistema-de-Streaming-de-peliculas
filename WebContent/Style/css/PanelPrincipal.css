@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+html{ background-color:#404040;}
+
+ 
+#titulo{ background-color:#404040;
+		font-size:80px;
+		color:#5cb85c; 
+		font-family:Vtks Revolt;
+		position:relative;
+		border-style: solid;
+   		border-width: 5px;
+   	    border-top:none;
+   		border-left:none;
+    	border-right:none;
+		}	  
+
+h1{color:white;}
+
+label{color:white;}
+
+#contenedor{ 
+				background-color:none;  
+	    		positon:absolute;
+				top:10px;
+				left:375px;
+			}
+			
+a{color: white;}	 
+
+a:hover{color: white;
+        text-decoration: underline;}

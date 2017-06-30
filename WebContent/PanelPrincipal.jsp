@@ -4,9 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="icon" href="Style/icons/favicon.ico">
+<link rel="stylesheet" href="Style/css/bootstrap.min.css">
+<title>Panel Principal.</title>
+<style type="text/css" > 
+		@import "Style/css/IniciarSesion.css"; 
+		 </style>
+ 		<style type="text/css">
+ 			 @font-face {
+		 				   font-family:Vtks Revolt ;
+   						   src: url("Style/fonts/Vtks Revolt.ttf");
+						}
+		</style>
 </head>
 <body>
-asdflajsdfasdf
+<h1 id="titulo"> &nbsp; &nbsp; GMOVIES</h1> 
+
 </body>
 </html>

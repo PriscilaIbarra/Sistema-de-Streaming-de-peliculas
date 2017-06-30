@@ -55,6 +55,7 @@
   				<%=rta %><a href="#" onclick="recargar()" class="close" data-dismiss="alert" aria-label="close">x</a></div>
 	 		<%	
 	 	}
+	 	session.removeAttribute("rta");//remueve la var pasada por sesion
 	 %>
 		<h1 id="titulo"> &nbsp; &nbsp; GMOVIES</h1> 
 			<div id="contenedor" class="container col-md-8">
