@@ -33,5 +33,10 @@ a:hover{color: white;
 #lrc{position:relative;
 	 left:400px;}         
 
+#mensaje{width:555px;
+		 height:45px;
+		 position:absolute;	
+		 top:390px;
+		 left:405px;} 
   
   

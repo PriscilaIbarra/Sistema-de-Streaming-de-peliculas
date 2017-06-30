@@ -34,10 +34,25 @@
 		  {document.getElementById("pass").style.color='#00cc00';}
 		  else{document.getElementById("pass").style.color='#ff0000';}
  		}
- </script>
+ 		</script>
+ 		<script>
+ 		function recargar()
+ 		{
+ 			mensaje.parentNode.removeChild(mensaje);
+ 			<% response.reset(); %>
+ 		}
+ 		</script>		
  </head>
 	<body>
-	 
+	 <%
+	 	String rta=(String)session.getAttribute("rta");
+	 	if(rta!=null)
+		{
+	 		%><div id="mensaje" width="300px" height="150px" class="alert alert-danger">
+  				<%=rta %><a href="#" onclick="recargar()" class="close" data-dismiss="alert" aria-label="close">x</a></div>
+	 		<%	
+	 	}
+	 %>
 		<h1 id="titulo"> &nbsp; &nbsp; GMOVIES</h1> 
 			<div id="contenedor" class="container col-md-8">
 				<form action="IniciarSesion" method="post" class="col-md-8">
