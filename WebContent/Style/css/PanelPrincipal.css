@@ -14,18 +14,35 @@ html{ background-color:#404040;}
     	border-right:none;
 		}	  
 
-h1{color:white;}
+h1,label{color:white;}
 
-label{color:white;}
+h3,p{color:white;
+     text-align:left;}
 
-#contenedor{ 
-				background-color:none;  
-	    		positon:absolute;
-				top:10px;
-				left:375px;
-			}
+
+#contenedor{ position:absolute;
+             left:350px;
+             width:800px; 
+             height:100px;  }
 			
-a{color: white;}	 
+a{color:#5cb85c;}	 
 
-a:hover{color: white;
+a:hover{color:#404040 ;
         text-decoration: underline;}
+
+#sinopsis{ background-color:#404040; 
+		   color: white;
+		   border-top:none;
+   	   	   border-left:none;
+           border-right:none;
+           border-bottom:none;	}
+           
+#menu{background-color:#404040;
+		font-size:20px;
+		color:#5cb85c;
+		width:200px;
+		position:absolute;
+		
+		 }        
+
+ button{font-size:45px;}
