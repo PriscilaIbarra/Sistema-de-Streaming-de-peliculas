@@ -1,4 +1,6 @@
 package capaNegocio;
+import java.util.ArrayList;
+
 import capaEntidades.*;
 import util.ApplicationException;
 
@@ -25,5 +27,12 @@ public class ControladorServicioUs
     	   else{rta=(long)-2;}
     	}
        return rta;  
+    }
+    
+    public ArrayList<Pelicula> pelPlanCliente(Long idUsuario) throws ApplicationException
+    { 
+    	Usuario u=new Usuario();
+    	u.setNroUsuario(idUsuario);
+    	return CatalogoDePeliculas.buscarPelPlan(u);
     }
 }

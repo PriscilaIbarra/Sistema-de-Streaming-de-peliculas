@@ -5,7 +5,7 @@ import java.util.*;
 import util.*;
 
 
-public class ControladorTarjetas
+public class CatalogoTarjetas
 {
 	public ArrayList<TipoTarjeta> buscarTipoTajetas() throws ApplicationException
 	{

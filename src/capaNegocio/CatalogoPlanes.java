@@ -4,7 +4,7 @@ import capaEntidades.*;
 import java.util.*;
 import util.ApplicationException;
 
-public class ControladorPlanes 
+public class CatalogoPlanes 
 {
     public ArrayList<Plan> buscarPlanes()throws ApplicationException
     {   

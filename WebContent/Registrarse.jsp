@@ -229,7 +229,7 @@
 				<div class="form-inline">
 							<%   
 							  try
-							   {   ControladorPlanes cp=new ControladorPlanes();
+							   {   CatalogoPlanes cp=new CatalogoPlanes();
 	 				   			   ArrayList<Plan> pls=cp.buscarPlanes();
 							   	   if( pls != null)
 		 						   {   %><div class="input-group"> 
@@ -270,7 +270,7 @@
 					<div class="form-inline">
 							<select class="form-control" required name="tipoTarjeta">
 								<% try
-								   {ControladorTarjetas ct=new ControladorTarjetas();
+								   {CatalogoTarjetas ct=new CatalogoTarjetas();
 								   ArrayList<TipoTarjeta>tpt=ct.buscarTipoTajetas();
 								   if(tpt!=null)
 								   {	for(TipoTarjeta tt : tpt)
@@ -279,7 +279,7 @@
 									   		%><option value="<%=tt.getIdTipTar()%>"><%=dt%></option><%
 								   		}	 
 								   }}
-									catch(ApplicationException e){}
+									catch(ApplicationException e){e.printStackTrace();}
 								%>
 							</select>
 							<input class="form-control" oninput="validarTarjeta()" type="text" placeholder="número" name="nroTarjeta" id="nroTar" required>
