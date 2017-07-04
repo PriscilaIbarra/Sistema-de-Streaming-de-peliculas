@@ -61,13 +61,26 @@
  
 <br>
 
-    <%  for(Pelicula p:lp)
-   		{%>
+    <%  for(int i=0;i<lp.size();i=i+2)
+   		{Pelicula p=lp.get(i);
+   		 int e=i+1;
+   		 Pelicula pe=lp.get(e);
+   		%>
    		<div class="row">
         <div  class="container-fluid col-md-6">
 		<div><h4> <%=p.getTitulo() %></h4></div>
 		<img  class="img-rounded col-md-4" align="left" src="<%=p.getImagen() %>">
 		<textarea class="img-thumbnail" rows="13" ><%=p.getDescripcion() %></textarea>
+		<br>
+		<div class="col-md-6">
+		<button class="btn btn-primary">Reproducir</button>
+		<button class="btn btn-primary" style="width:90px;">Agregar</button>
+		</div>
+		</div>
+		 <div  class="container-fluid col-md-6">
+		<div><h4> <%=pe.getTitulo() %></h4></div>
+		<img  class="img-rounded col-md-4" align="left" src="<%=pe.getImagen() %>">
+		<textarea class="img-thumbnail" rows="13" ><%=pe.getDescripcion() %></textarea>
 		<br>
 		<div class="col-md-6">
 		<button class="btn btn-primary">Reproducir</button>
