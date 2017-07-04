@@ -6,8 +6,12 @@
     <servlet-class>capaServlets.Registrarse</servlet-class>
   </servlet>
   <servlet>
-      <servlet-name>IniciarSesion</servlet-name>
-      <servlet-class>capaServlets.IniciarSesion</servlet-class>
+    <servlet-name>IniciarSesion</servlet-name>
+    <servlet-class>capaServlets.IniciarSesion</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>BuscarPeliculas</servlet-name>
+      <servlet-class>capaServlets.BuscarPelicuals</servlet-class>
   </servlet>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

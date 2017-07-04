@@ -1,4 +1,5 @@
 package capaNegocio;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import capaEntidades.Pelicula;
 import capaEntidades.Usuario;
@@ -11,5 +12,10 @@ public class CatalogoDePeliculas
 		PeliculaData pd=new PeliculaData();
 		return pd.getPeliculasPlanCli(u);
 	}
-
+	
+	public static ArrayList<Pelicula> buscarPeliculas(Integer idGenero,String descP) throws ApplicationException, SQLException
+	{
+		PeliculaData pd=new PeliculaData();
+		return pd.getPeliculas(idGenero,descP);
+	}
 }

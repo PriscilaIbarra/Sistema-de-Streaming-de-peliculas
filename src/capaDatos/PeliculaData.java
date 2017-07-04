@@ -53,4 +53,40 @@ public class PeliculaData
 	   		  }
 	  return ppc;		   
    }
+   
+   
+   public ArrayList<Pelicula> getPeliculas(Integer idG,String descp) throws ApplicationException, SQLException
+   {   ArrayList<Pelicula> lp=null;
+   	   PreparedStatement stmt=null;
+   	   ResultSet rta=null;
+   	   try{stmt=FabricaDeConexion.getFabrica().getConexion().prepareStatement("select * from peliculas where idGenero=? or descripcion like ? or titulo like ? ");
+   	   		stmt.setInt(1,idG);
+   	   		stmt.setString(2, descp);
+   	   		stmt.setString(3, descp);
+   	   		rta=stmt.executeQuery();
+   	   		lp=new ArrayList<Pelicula>();
+   	   		while(rta.next())
+   	   		{
+   	   			Pelicula p=new Pelicula();
+   	   			p.setCodPelicula(rta.getLong("idPelicula"));
+   	   			p.setDescripcion(rta.getString("descripcion"));
+   	   			p.setDuracion(rta.getTime("duracion"));
+   	   			p.setImagen(rta.getString("imagen"));
+   	   			p.setTitulo(rta.getString("titulo"));
+   	   			p.setVideo(rta.getString("video"));
+   	   			lp.add(p);
+   	   		}
+   	   }
+   	   
+   	   catch(SQLException e)
+   	   {e.printStackTrace();}
+   	   finally{if(stmt!=null)
+   		       {stmt.close();}
+   	   		   if(rta!=null)
+   	   		   {rta.close();
+   	   		   FabricaDeConexion.getFabrica().releaseConn();}
+   	   		   }
+   	   return lp;
+	   
+   }
 }
