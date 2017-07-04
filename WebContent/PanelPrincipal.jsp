@@ -67,14 +67,12 @@
  
 <br><br><br>
 
-      
+    <div style="margin-left:270px;">   
     <% 	 if(lp!=null)
-   		 { if((lp.size()%2)!=0)
-    		{ %><div style="margin-left:390px;"><% 
+   		 {  		
  	 		  for(Pelicula p:lp)
  	 		  {%>		
- 			  <div class="row">
- 	     	  <div  class="container-fluid col-md-6">
+ 			  <div style="margin-bottom:30px;" class="container-fluid col-md-6">
  			  <div><h4> <%=p.getTitulo() %></h4></div>
  			  <img style="width:215px;height:250px;" class="img-rounded col-md-4" align="left" src="<%=p.getImagen() %>">
  			  <textarea disabled style="background-color:#404040;border:none;" class="img-thumbnail" rows="12" ><%=p.getDescripcion() %></textarea>
@@ -83,47 +81,11 @@
  		      <button class="btn btn-primary">Reproducir</button>
  			  <button class="btn btn-primary" style="width:90px;">Agregar</button>
  			  </div>
- 			  </div>
- 			  </div><%
- 	  		 }
-    		%></div><% 
- 	       }
-   		else
-   	    { %><div style="margin-left:270px;"><%
-   		 for(int i=0;i<lp.size();i=i+2)
-   		 {Pelicula p=lp.get(i);
-   		  int e=i+1;
-   		    Pelicula pe=lp.get(e);
-   		  %>
-   		  <div class="row">
-          <div  class="container-fluid col-md-6">
-		  <div><h4> <%=p.getTitulo() %></h4></div>
-		  <img style="width:215px;height:250px;" class="img-rounded col-md-4" align="left" src="<%=p.getImagen() %>">
-		  <textarea disabled style="background-color:#404040;border:none;" class="img-thumbnail" rows="12" ><%=p.getDescripcion() %></textarea>
-		  <br>
-		  <div class="col-md-6">
-		  <button class="btn btn-primary">Reproducir</button>
-		  <button class="btn btn-primary" style="width:90px;">Agregar</button>
-		  </div>
-		  </div>
-		  <div  class="container-fluid col-md-6">
-		  <div><h4> <%=pe.getTitulo() %></h4></div>
-		  <img style="width:215px;height:250px;" class="img-rounded col-md-4" align="left" src="<%=pe.getImagen() %>">
-		  <textarea disabled style="background-color:#404040;border:none;" class="img-thumbnail" rows="12" ><%=pe.getDescripcion() %></textarea>
-		  <br>
-		  <div class="col-md-6">
-		  <button class="btn btn-primary">Reproducir</button>
-		  <button class="btn btn-primary" style="width:90px;">Agregar</button>
-		  </div>
-		  </div>
-		  </div>
-		  <br>
-	     <% 
-	    }
-   	    %></div><% 
- 	 	}
-   	 }
-    %>
+ 			  </div><%	
+ 			  }
+    		
+ 	      }
+   	%>
 	</div>
 
 </body>
