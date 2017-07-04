@@ -69,8 +69,8 @@
    		<div class="row">
         <div  class="container-fluid col-md-6">
 		<div><h4> <%=p.getTitulo() %></h4></div>
-		<img  class="img-rounded col-md-4" align="left" src="<%=p.getImagen() %>">
-		<textarea class="img-thumbnail" rows="13" ><%=p.getDescripcion() %></textarea>
+		<img style="width:215px;height:250px;" class="img-rounded col-md-4" align="left" src="<%=p.getImagen() %>">
+		<textarea class="img-thumbnail" rows="12" ><%=p.getDescripcion() %></textarea>
 		<br>
 		<div class="col-md-6">
 		<button class="btn btn-primary">Reproducir</button>
@@ -79,8 +79,8 @@
 		</div>
 		 <div  class="container-fluid col-md-6">
 		<div><h4> <%=pe.getTitulo() %></h4></div>
-		<img  class="img-rounded col-md-4" align="left" src="<%=pe.getImagen() %>">
-		<textarea class="img-thumbnail" rows="13" ><%=pe.getDescripcion() %></textarea>
+		<img style="width:215px;height:250px;" class="img-rounded col-md-4" align="left" src="<%=pe.getImagen() %>">
+		<textarea class="img-thumbnail" rows="12" ><%=pe.getDescripcion() %></textarea>
 		<br>
 		<div class="col-md-6">
 		<button class="btn btn-primary">Reproducir</button>
