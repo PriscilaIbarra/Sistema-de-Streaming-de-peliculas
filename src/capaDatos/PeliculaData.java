@@ -20,9 +20,9 @@ public class PeliculaData
                         + " where idUsuario=?");
 	   stmt.setLong(1,u.getNroUsuario());
 	   rta=stmt.executeQuery();
+	   ppc=new ArrayList<Pelicula>();
 	   while(rta.next())
-	   {   ppc=new ArrayList<Pelicula>();
-		   Pelicula p=new Pelicula();
+	   {   Pelicula p=new Pelicula();
 		   p.setCodPelicula(rta.getLong("idPelicula"));
 		   p.setTitulo(rta.getString("titulo"));
 		   p.setDescripcion(rta.getString("sinopsis"));

@@ -3,7 +3,7 @@
 <%@ page import="capaNegocio.*" %> 
 <%@ page import="capaEntidades.*" %>
 <%@ page import="java.util.*" %>
-
+<%@ page import="java.io.*" %>
    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -26,6 +26,10 @@
    						   src: url("Style/fonts/Vtks Revolt.ttf");
 						}
 		</style>
+		<% ControladorServicioUs cu=new ControladorServicioUs();
+		   ArrayList<Pelicula>lp=cu.pelPlanCliente((long)5);//(long)session.getAttribute("idUsuario")
+		
+		%>
 </head>
 <body>
   <h1 id="titulo"> GMOVIES</h1>  
@@ -53,7 +57,29 @@
   </div>
   <button type="submit" class="btn btn-success">Buscar</button>
  </form>
+ 
+ 
 <br>
+
+    <%  for(Pelicula p:lp)
+   		{%>
+   		<div class="row">
+        <div  class="container-fluid col-md-6">
+		<div><h4> <%=p.getTitulo() %></h4></div>
+		<img  class="img-rounded col-md-4" align="left" src="<%=p.getImagen() %>">
+		<textarea class="img-thumbnail" rows="13" ><%=p.getDescripcion() %></textarea>
+		<br>
+		<div class="col-md-6">
+		<button class="btn btn-primary">Reproducir</button>
+		<button class="btn btn-primary" style="width:90px;">Agregar</button>
+		</div>
+		</div>
+		</div>
+		<br>
+	    <% 
+	    }
+    %>
+
 
 </body>
 </html>
