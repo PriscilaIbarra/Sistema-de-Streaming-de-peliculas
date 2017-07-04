@@ -53,7 +53,7 @@
  		  <option value="<%=g.getIdGenero() %>"><%=g.getDescripcion() %></option>
  		  <% 
  	  	}  
- 	  }
+ 	  } 
  	
  	%>
   	</select>
@@ -72,7 +72,7 @@
    		 {  		
  	 		  for(Pelicula p:lp)
  	 		  {%>		
- 			  <div style="margin-bottom:30px;" class="container-fluid col-md-6">
+ 			  <div style="margin-bottom:30px;" class="container-fluid col-md-6"> 
  			  <div><h4> <%=p.getTitulo() %></h4></div>
  			  <img style="width:215px;height:250px;" class="img-rounded col-md-4" align="left" src="<%=p.getImagen() %>">
  			  <textarea disabled style="background-color:#404040;border:none;" class="img-thumbnail" rows="12" ><%=p.getDescripcion() %></textarea>
