@@ -9,6 +9,8 @@ public class Pelicula
 	private String descripcion;
 	private Time duracion;
     private Genero genP;
+    private String imagen;
+    private String video;
     
 	public Long getCodPelicula() 
 	{
@@ -49,5 +51,21 @@ public class Pelicula
 	public void setGenP(Genero genP)
 	{
 		this.genP = genP;
+	}
+	public String getImagen()
+	{
+		return imagen;
+	}
+	public void setImagen(String imagen)
+	{
+		this.imagen = imagen;
+	}
+	public String getVideo() 
+	{
+		return video;
+	}
+	public void setVideo(String video) 
+	{
+		this.video = video;
 	}	
 }

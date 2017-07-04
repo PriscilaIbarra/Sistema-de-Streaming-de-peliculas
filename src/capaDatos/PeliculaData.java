@@ -27,6 +27,8 @@ public class PeliculaData
 		   p.setTitulo(rta.getString("titulo"));
 		   p.setDescripcion(rta.getString("sinopsis"));
 		   p.setDuracion(rta.getTime("duracion"));
+		   p.setImagen(rta.getString("imagen"));
+		   p.setVideo(rta.getString("video"));
 		   Genero g=new Genero();
 		   g.setDescripcion(rta.getString("genero"));
 		   p.setGenP(g);

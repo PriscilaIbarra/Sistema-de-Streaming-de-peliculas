@@ -1,5 +1,6 @@
 package capaServlets;
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import capaEntidades.*;
 import capaNegocio.*;
+
 
 @WebServlet("/IniciarSesion")
 public class IniciarSesion extends HttpServlet {
@@ -42,12 +44,13 @@ public class IniciarSesion extends HttpServlet {
 			    request.getSession().setAttribute("rta",rta);
 				response.sendRedirect("IniSesion.jsp");}
 		       else{ request.getSession(true).setAttribute("idUsuario",res);
-		       		 response.sendRedirect("PanelPrincipal.jsp");
-		           }	
-			}
+		       		 response.sendRedirect("PanelPrincipal.jsp");} 
+		       			
+		    }	
+	}
 		
 		 
   		 	
-	}
+	
 
 }

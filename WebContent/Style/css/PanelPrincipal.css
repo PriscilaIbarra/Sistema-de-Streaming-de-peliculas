@@ -1,6 +1,26 @@
 @CHARSET "UTF-8";
-html{ background-color:#404040;}
+html,body{ background-color:none;}
 
+ 
+ #recuadro{ position:absolute;
+ 			top:200px;
+			left:400px;
+	        color:blue;
+	        border-color:white;
+			border-width:10px;
+			background-color:#404040;
+			}
+			
+ #recuadro1{ position:absolute;
+ 			top:200px;
+			left:800px;
+	        color:blue;
+	        border-color:white;
+			border-width:10px;
+			background-color:#404040;
+			}
+ 
+ 
  
 #titulo{ background-color:#404040;
 		font-size:80px;
@@ -19,30 +39,22 @@ h1,label{color:white;}
 h3,p{color:white;
      text-align:left;}
 
-
-#contenedor{ position:absolute;
-             left:350px;
-             width:800px; 
-             height:100px;  }
-			
 a{color:#5cb85c;}	 
 
 a:hover{color:#404040 ;
         text-decoration: underline;}
-
-#sinopsis{ background-color:#404040; 
-		   color: white;
-		   border-top:none;
-   	   	   border-left:none;
-           border-right:none;
-           border-bottom:none;	}
            
-#menu{background-color:#404040;
+#menu{  background-color:#404040;
 		font-size:20px;
 		color:#5cb85c;
 		width:200px;
-		position:absolute;
-		
-		 }        
+		position:absolute;}    
+		    
+h4{ padding-left:13px;color:white;}
 
- button{font-size:45px;}
+#t1,#t2{color:white;background-color:#404040;}
+
+ button{font-size:25px;}
+ 
+ 
+#formb{left:415px;}
