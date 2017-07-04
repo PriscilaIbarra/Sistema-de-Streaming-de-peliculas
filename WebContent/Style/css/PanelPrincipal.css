@@ -34,7 +34,8 @@ html,body{ background-color:#404040;}
     	border-right:none;
 		}	  
 
-h1,label{color:white;}
+h1,label,textarea{color:white;}
+
 
 h3,p{color:white;
      text-align:left;}
@@ -56,5 +57,5 @@ h4{ padding-left:13px;color:white;}
 
  button{font-size:25px;}
  
- 
-#formb{left:415px;}
+
+#formb{left:450px;}

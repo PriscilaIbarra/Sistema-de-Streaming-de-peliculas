@@ -59,8 +59,9 @@
  </form>
  
  
-<br>
+<br><br>
 
+    <div style="margin-left:270px;">    
     <%  for(int i=0;i<lp.size();i=i+2)
    		{Pelicula p=lp.get(i);
    		 int e=i+1;
@@ -70,7 +71,7 @@
         <div  class="container-fluid col-md-6">
 		<div><h4> <%=p.getTitulo() %></h4></div>
 		<img style="width:215px;height:250px;" class="img-rounded col-md-4" align="left" src="<%=p.getImagen() %>">
-		<textarea class="img-thumbnail" rows="12" ><%=p.getDescripcion() %></textarea>
+		<textarea disabled style="background-color:#404040;border:none;" class="img-thumbnail" rows="12" ><%=p.getDescripcion() %></textarea>
 		<br>
 		<div class="col-md-6">
 		<button class="btn btn-primary">Reproducir</button>
@@ -80,7 +81,7 @@
 		 <div  class="container-fluid col-md-6">
 		<div><h4> <%=pe.getTitulo() %></h4></div>
 		<img style="width:215px;height:250px;" class="img-rounded col-md-4" align="left" src="<%=pe.getImagen() %>">
-		<textarea class="img-thumbnail" rows="12" ><%=pe.getDescripcion() %></textarea>
+		<textarea disabled style="background-color:#404040;border:none;" class="img-thumbnail" rows="12" ><%=pe.getDescripcion() %></textarea>
 		<br>
 		<div class="col-md-6">
 		<button class="btn btn-primary">Reproducir</button>
@@ -92,7 +93,7 @@
 	    <% 
 	    }
     %>
-
+	</div>
 
 </body>
 </html>
