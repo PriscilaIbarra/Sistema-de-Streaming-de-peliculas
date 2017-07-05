@@ -45,7 +45,7 @@
  <form id="formb" action="BuscarPeliculas" method="post" class="form-inline col-md-8">
  <div  class="form-group">
  	<select class="form-control" name="idGenero">
- 	<option>Género</option>
+ 	<option value="0">Género</option>
  	<% ArrayList<Genero>lg=CatalogoDeGeneros.listarGeneros();
  	  if(lg!=null)
  	  { for(Genero g:lg)

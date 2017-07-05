@@ -35,9 +35,12 @@ public class BuscarPeliculas extends HttpServlet
 	{
 	    doGet(request, response);
 	    String desc=request.getParameter("titodesc").trim();
-	    Integer idG=Integer.parseInt(request.getParameter("idGenero").trim());
-	    try {
-	    	ArrayList<Pelicula> lp=CatalogoDePeliculas.buscarPeliculas(idG, desc);
+	    Integer idG;
+	    if(request.getParameter("idGenero").trim()==null)
+	    {idG=0;}	
+	    else{idG=Integer.parseInt(request.getParameter("idGenero").trim());}
+	    try {Integer idUs=Integer.parseInt(request.getSession().getAttribute("idUsuario").toString());
+	    	ArrayList<Pelicula> lp=CatalogoDePeliculas.buscarPeliculas(idG, desc,idUs);
 	    	request.getSession().setAttribute("lp", lp);
 	    	response.sendRedirect("PanelSecundario.jsp");
 			} 

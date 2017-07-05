@@ -13,9 +13,9 @@ public class CatalogoDePeliculas
 		return pd.getPeliculasPlanCli(u);
 	}
 	
-	public static ArrayList<Pelicula> buscarPeliculas(Integer idGenero,String descP) throws ApplicationException, SQLException
+	public static ArrayList<Pelicula> buscarPeliculas(Integer idGenero,String descP,Integer idUs) throws ApplicationException, SQLException
 	{
 		PeliculaData pd=new PeliculaData();
-		return pd.getPeliculas(idGenero,descP);
+		return pd.getPeliculas(idGenero,descP,idUs);
 	}
 }

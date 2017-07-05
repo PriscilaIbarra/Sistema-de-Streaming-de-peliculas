@@ -55,14 +55,22 @@ public class PeliculaData
    }
    
    
-   public ArrayList<Pelicula> getPeliculas(Integer idG,String descp) throws ApplicationException, SQLException
+   public ArrayList<Pelicula> getPeliculas(Integer idG,String descp,Integer idUs) throws ApplicationException, SQLException
    {   ArrayList<Pelicula> lp=null;
-   	   PreparedStatement stmt=null;
+   	   PreparedStatement stmt=null;//cuando uso like en la consulta tengo q concatenar los % a los parametros del stmt
    	   ResultSet rta=null;
-   	   try{stmt=FabricaDeConexion.getFabrica().getConexion().prepareStatement("select * from peliculas where idGenero=? or descripcion like ? or titulo like ? ");
-   	   		stmt.setInt(1,idG);
-   	   		stmt.setString(2, descp);
-   	   		stmt.setString(3, descp);
+   	   if(descp.compareToIgnoreCase("")==0)
+   	   {descp="+";}
+   	   try{
+   		   stmt=FabricaDeConexion.getFabrica().getConexion().prepareStatement("select distinct pe.idPelicula as idPelicula,titulo,pe.descripcion as descripcion,duracion,imagen,video from usuarios us " 
+						  +" inner join planes p on us.idPlan=p.idPlan "
+						  +" inner join peliculasplan pp on p.idPlan=pp.idPlan "
+                          +" inner join peliculas pe on pp.idPelicula=pe.idPelicula "
+                          +" where idUsuario=? and (titulo like ? or pe.descripcion like ? or idGenero=?)");
+   	   		stmt.setInt(1,idUs);
+   	   		stmt.setString(2,"%"+descp+"%");
+   	   		stmt.setString(3,"%"+descp+"%");
+	   		stmt.setInt(4,idG);
    	   		rta=stmt.executeQuery();
    	   		lp=new ArrayList<Pelicula>();
    	   		while(rta.next())

@@ -36,8 +36,8 @@
 </head>
 <%
 	ArrayList<Pelicula>lp=(ArrayList<Pelicula>)session.getAttribute("lp");
-     if(lp==null)
-    {%><div id="mensaje" width="300px" height="150px" class="alert alert-danger">Sin resultados!<a href="#" onclick="recargar()" class="close" data-dismiss="alert" aria-label="close">x</a></div><%}
+     if(lp.isEmpty())
+    {%><div id="mensaje" style="width:370px;height:50px;position:absolute;left:526px;top:300px;" class="alert alert-danger"><center>Sin resultados!<a href="#" onclick="recargar()" class="close" data-dismiss="alert" aria-label="close">x</a></center></div><%}
 %>
 <body>
 <h1 id="titulo"> GMOVIES</h1>  
@@ -53,7 +53,7 @@
  <form id="formb" action="BuscarPeliculas" method="post" class="form-inline col-md-8">
  <div  class="form-group">
  	<select class="form-control" name="idGenero">
- 	<option value="z">Género</option>
+ 	<option value="0">Género</option>
  	<% ArrayList<Genero>lg=CatalogoDeGeneros.listarGeneros();
  	  if(lg!=null)
  	  { for(Genero g:lg)
