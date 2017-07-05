@@ -30,7 +30,8 @@
  		function recargar()
  		{
  			mensaje.parentNode.removeChild(mensaje);
- 			<% response.reset(); %>
+ 			<% response.reset();%>
+ 			
  		}
  		</script>
 </head>
