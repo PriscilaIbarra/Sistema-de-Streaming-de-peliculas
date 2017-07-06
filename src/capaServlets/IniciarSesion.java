@@ -27,9 +27,9 @@ public class IniciarSesion extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{//El archivo jsp no puede tener el mismo nombre que el servlet porque tira error
-		String rta=null;
+	{  	//El archivo jsp no puede tener el mismo nombre que el servlet porque tira error
 		doGet(request, response);
+		String rta=null;
 		Usuario u=new Usuario();
 		u.setEmail(request.getParameter("email").trim());
 		u.setPassword(u.encriptar(request.getParameter("pass").trim()));

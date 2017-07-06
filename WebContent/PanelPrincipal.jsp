@@ -27,8 +27,9 @@
 						}
 		</style>
 		<% ControladorServicioUs cu=new ControladorServicioUs();
-		   ArrayList<Pelicula>lp=cu.pelPlanCliente(Long.parseLong(session.getAttribute("idUsuario").toString()));
-		
+		   Usuario u=new Usuario();
+		   u.setNroUsuario(Long.parseLong(session.getAttribute("idUsuario").toString()));
+		   ArrayList<Pelicula>lp=cu.pelPlanCliente(u);
 		%>
 </head>
 <body>
@@ -36,9 +37,9 @@
  <div id="menu">
          <ul class="nav" style="color:#5cb85c;">
             <li class="active"><a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; Mis Peliculas</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp; Catálogo </a></li>
+            <li><a href="PanelPrincipal.jsp"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp; Catálogo </a></li>
             <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp; Contacto</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp; Cerrar Sessión</a></li>
+            <li><a href="CerrarSesion.jsp"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp; Cerrar Sessión</a></li>
           </ul>
  </div>
  <br>
@@ -78,8 +79,7 @@
  			  <textarea disabled style="background-color:#404040;border:none;" class="img-thumbnail" rows="12" ><%=p.getDescripcion() %></textarea>
  		      <br>
  			  <div class="col-md-6">
- 		      <button class="btn btn-primary">Reproducir</button>
- 			  <button class="btn btn-primary" style="width:90px;">Agregar</button>
+ 		      <button class="btn btn-primary" style="width:187px;">Alquilar</button>
  			  </div>
  			  </div><%	
  			  }

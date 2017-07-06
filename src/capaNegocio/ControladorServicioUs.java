@@ -29,10 +29,14 @@ public class ControladorServicioUs
        return rta;  
     }
     
-    public ArrayList<Pelicula> pelPlanCliente(Long idUsuario) throws ApplicationException
+    public ArrayList<Pelicula> pelPlanCliente(Usuario u) throws ApplicationException
     { 
-    	Usuario u=new Usuario();
-    	u.setNroUsuario(idUsuario);
     	return CatalogoDePeliculas.buscarPelPlan(u);
+    }
+    
+    public static Integer Alquilar(Usuario u, Pelicula p)
+    {
+    	
+    	return 0;
     }
 }
