@@ -1,4 +1,5 @@
 package capaNegocio;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import capaEntidades.*;
@@ -25,15 +26,15 @@ public class ControladorServicioUs
     	return CatalogoDePeliculas.buscarPelPlan(u);
     }
     
-    public static Integer AlquilarPel(Usuario u, Pelicula p)
+    public static Integer AlquilarPel(Usuario u, Pelicula p) throws ApplicationException, SQLException
     {   Integer rta=0;
     	CatalogoDeAlquileres ca=new CatalogoDeAlquileres();
     	if(ca.getCantAlquileres(u)<u.getPlan().getCantPel())
     	{
-    		if(u.fueAlquiladaEnMes(p))
+    		if(ca.fueAlquilada(u, p))
     		{rta=1;}	
     		else
-    		{  if(u.alquilarPelicula(p))
+    		{  if(ca.agregarAlquiler(u, p))
     		   {rta=2;}
     		   else{rta=3;}
     		}	

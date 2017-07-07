@@ -13,12 +13,12 @@ public class AlquilerData
 {
    public Integer getCantDeAlquileres(Usuario u) throws ApplicationException
    {
-	String mesS="";
-   	String fechaActual=Fecha.GetFecha();
+	String fechaActual=Fecha.GetFecha();
    	String añoA=fechaActual.subSequence(0,3).toString();
    	String mesA=fechaActual.subSequence(5,6).toString();
-   	String feContrSer="201-07-07";//u.getFeContratacion();<--nula ver
+   	String feContrSer=u.getFeContratacion();
    	String diaContrSer=feContrSer.subSequence(8,9).toString();
+   	String mesS="";
    	if(Integer.parseInt(mesA)<9)
    	{ mesS="0"+String.valueOf((Integer.parseInt(mesA)+1));}
    	else{mesS=String.valueOf((Integer.parseInt(mesA)+1));}
@@ -60,16 +60,15 @@ public class AlquilerData
   	 return numAl;
    }
 
-   
-   
-   
+      
      public Boolean esPeliculaAlquilada(Usuario u,Pelicula p) throws ApplicationException, SQLException
-     {   String mesS="";
+     { 
   	   String fechaActual=Fecha.GetFecha();
   	   String añoA=fechaActual.subSequence(0,3).toString();
   	   String mesA=fechaActual.subSequence(5,6).toString();
-  	   String feContrSer="201-07-07";//u.getFeContratacion();
+  	   String feContrSer=u.getFeContratacion();
   	   String diaContrSer=feContrSer.subSequence(8,9).toString();
+  	   String mesS="";
   	   if(Integer.parseInt(mesA)<9)
   	   { mesS="0"+String.valueOf((Integer.parseInt(mesA)+1));}
   	   else{mesS=String.valueOf((Integer.parseInt(mesA)+1));}
@@ -84,8 +83,8 @@ public class AlquilerData
                     +" inner join alquileres a on pp.idPeliculasPlan=a.idPeliculasPlan"
                     +" where us.idUsuario=? and a.fechaAlquiler >= ? and a.fechaAlquiler<=? and pp.idPelicula=?");
   	      stmt.setLong(1,u.getNroUsuario());
-  	      stmt.setString(2,iniciomes );
-  	      stmt.setString(3, finmes);
+  	      stmt.setString(2,iniciomes);
+  	      stmt.setString(3,finmes);
   	      stmt.setLong(4,p.getCodPelicula());
   	      rta=stmt.executeQuery();
   	      if(rta.next())

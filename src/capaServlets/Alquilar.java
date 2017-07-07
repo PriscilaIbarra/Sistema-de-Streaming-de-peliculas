@@ -1,5 +1,7 @@
 package capaServlets;
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import capaEntidades.*;
 import capaNegocio.*;
+import util.ApplicationException;
 
 @WebServlet("/Alquilar")
 public class Alquilar extends HttpServlet
@@ -36,9 +39,12 @@ public class Alquilar extends HttpServlet
 		u.setPlan(pl);
 		Pelicula p =new Pelicula();
 		p.setCodPelicula(Long.parseLong(request.getParameter("btnAlquilar").toString().trim()));
-		Integer rta=ControladorServicioUs.AlquilarPel(u, p);
+		Integer rta=0;
+		try {rta = ControladorServicioUs.AlquilarPel(u, p);}
+		catch (ApplicationException | SQLException e)
+		{e.printStackTrace();}
 	    request.getSession(false).setAttribute("rta",rta);
-	    response.sendRedirect('"'+request.getSession(false).getAttribute("pagAc").toString()+'"');
+	    response.sendRedirect(request.getSession(false).getAttribute("pagAc").toString());
 		
 	}
 
