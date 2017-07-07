@@ -34,18 +34,19 @@ public class IniciarSesion extends HttpServlet {
 		u.setEmail(request.getParameter("email").trim());
 		u.setPassword(u.encriptar(request.getParameter("pass").trim()));
 		ControladorServicioUs c =new ControladorServicioUs();
-		Long res=c.iniciarSesion(u);
-		if(res==-1)
+		Usuario us=c.iniciarSesion(u);
+		if(us==null)
 		{rta="Email o Contraseña incorrectos!!";
 		request.getSession().setAttribute("rta",rta);
 		response.sendRedirect("IniSesion.jsp");}
-		else{  if(res==-2)
-			   {rta="Usuario inhabilitado!!";
-			    request.getSession().setAttribute("rta",rta);
-				response.sendRedirect("IniSesion.jsp");}
-		       else{ request.getSession(true).setAttribute("idUsuario",res);
-		       		 response.sendRedirect("PanelPrincipal.jsp");} 
-		       			
+		else{  if(us.getEstado().compareToIgnoreCase("habilitado")==0)
+			   { request.getSession(true).setAttribute("idUsuario",us.getNroUsuario());
+			     request.getSession(true).setAttribute("idPlan",us.getPlan().getIdPlan());
+			     request.getSession(true).setAttribute("cantPeliculas",us.getPlan().getCantPel());
+	       		 response.sendRedirect("PanelPrincipal.jsp");}
+		       else{ rta="Usuario inhabilitado!!";
+			         request.getSession().setAttribute("rta",rta);
+				     response.sendRedirect("IniSesion.jsp");} 
 		    }	
 	}
 		

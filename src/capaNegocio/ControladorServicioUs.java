@@ -14,19 +14,10 @@ public class ControladorServicioUs
     	{ return false;}
     }
     
-    public Long iniciarSesion(Usuario usu)
-    {	Long rta=(long)0;
+    public Usuario iniciarSesion(Usuario usu)
+    {	
         Usuario us=CatalogoDeUsuarios.BuscarUsuario(usu);
-       	if(us==null)
-    	{ rta=(long)-1;}
-    	else
-    	{   if(us.getEstado().compareToIgnoreCase("habilitado")==0)
-    		{
-    			rta=us.getNroUsuario();
-    		}
-    	   else{rta=(long)-2;}
-    	}
-       return rta;  
+       	return us;
     }
     
     public ArrayList<Pelicula> pelPlanCliente(Usuario u) throws ApplicationException
@@ -35,21 +26,26 @@ public class ControladorServicioUs
     }
     
     public static Integer AlquilarPel(Usuario u, Pelicula p)
-    {  
-    	//0-excede cantidad permitida de pel para alquilar
-    	//1-pelicula ya alquilada en el mes
-    	//2-Pelicula Alquilada con exito
-    	//3-Error al alquilar pelicula
-    	if(u.getCantPelAlqEnMes()<u.getPlan().getCantPel())
+    {   Integer rta=0;
+    	CatalogoDeAlquileres ca=new CatalogoDeAlquileres();
+    	if(ca.getCantAlquileres(u)<u.getPlan().getCantPel())
     	{
     		if(u.fueAlquiladaEnMes(p))
-    		{return 1;}	
+    		{rta=1;}	
     		else
     		{  if(u.alquilarPelicula(p))
-    		   {return 2;}
-    		   else{return 3;}
+    		   {rta=2;}
+    		   else{rta=3;}
     		}	
     	}
-    	else{return 0;}
+    	
+    	return rta;
+    	
+    	
+    	
+    	//0-excede cantidad permitida de pel para alquilar
+		//1-pelicula ya alquilada en el mes
+		//2-Pelicula Alquilada con exito
+			//3-Error al alquilar pelicula
     }
 }

@@ -147,7 +147,7 @@ public Usuario getUsuario(Usuario u) throws SQLException, ApplicationException
   ResultSet rs=null;
   Usuario ub=null;
   try {
-	  	stmt=FabricaDeConexion.getFabrica().getConexion().prepareStatement("select idUsuario,estado from usuarios where mail=? and password=?");
+	  	stmt=FabricaDeConexion.getFabrica().getConexion().prepareStatement("select idUsuario,us.idPlan as idPlan,p.cantPeliculas as cantPeliculas,estado from usuarios us inner join planes p on us.idPlan=p.idPlan where mail=? and password=?");
 	  	stmt.setString(1,u.getEmail());
 	  	stmt.setString(2,u.getPassword());
 	  	rs=stmt.executeQuery();
@@ -156,6 +156,10 @@ public Usuario getUsuario(Usuario u) throws SQLException, ApplicationException
 	  		ub=new Usuario();
 	  		ub.setNroUsuario(rs.getLong("idUsuario"));
 	  		ub.setEstado(rs.getString("estado"));
+	  		Plan p=new Plan();
+	  		p.setIdPlan(rs.getInt("idPlan"));
+	  		p.setCantPel(rs.getInt("cantPeliculas"));
+	  		ub.setPlan(p);
 	  	}
 	 } 
   catch (SQLException e)
@@ -177,7 +181,7 @@ public Usuario getUsuario(Usuario u) throws SQLException, ApplicationException
  	String fechaActual=Fecha.GetFecha();
  	String añoA=fechaActual.subSequence(0,3).toString();
  	String mesA=fechaActual.subSequence(5,6).toString();
- 	String feContrSer=u.getFeContratacion();
+ 	String feContrSer="201-07-07";//u.getFeContratacion();<--nula ver
  	String diaContrSer=feContrSer.subSequence(8,9).toString();
  	if(Integer.parseInt(mesA)<9)
  	{ mesS="0"+String.valueOf((Integer.parseInt(mesA)+1));}
@@ -257,7 +261,7 @@ public Usuario getUsuario(Usuario u) throws SQLException, ApplicationException
 	   String fechaActual=Fecha.GetFecha();
 	   String añoA=fechaActual.subSequence(0,3).toString();
 	   String mesA=fechaActual.subSequence(5,6).toString();
-	   String feContrSer=u.getFeContratacion();
+	   String feContrSer="201-07-07";//u.getFeContratacion();
 	   String diaContrSer=feContrSer.subSequence(8,9).toString();
 	   if(Integer.parseInt(mesA)<9)
 	   { mesS="0"+String.valueOf((Integer.parseInt(mesA)+1));}
@@ -327,6 +331,7 @@ public Usuario getUsuario(Usuario u) throws SQLException, ApplicationException
    public Boolean grabarAlquiler(Usuario us,Pelicula p) throws ApplicationException, SQLException
    {   PreparedStatement stmt=null;
 	   Boolean rta=false;
+	  
 	   try
 	   { stmt=FabricaDeConexion.getFabrica().getConexion().prepareStatement("insert into alquileres (idPeliculasPlan,idUsuario,fechaAlquiler) values "
 			   +" ((select idPeliculasPlan from peliculasplan where idPelicula=? and idPlan=?),?,?)");

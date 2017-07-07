@@ -150,60 +150,18 @@ public class Usuario
     	return pass;
     }
     
-    public Integer getCantPelAlqEnMes()
-    {   Integer cantPelAlMes=0;
-    	UsuarioData ud=new UsuarioData();
-    	try {cantPelAlMes=ud.getCantPelAlq(this);}
-    	catch (ApplicationException e)
-    	{e.printStackTrace();}
-    	return cantPelAlMes;
-    }
-    
-    public void recordar()
-    {
-    	UsuarioData ud=new UsuarioData();
-    	try {this.setPlan(ud.recuperarPlan(this));}
-    	catch (ApplicationException e)
-    	{e.printStackTrace();}
-    	catch (SQLException e) 
-    	{e.printStackTrace();}
-    }
-    
-    public Boolean fueAlquiladaEnMes(Pelicula p)
-    {       Boolean rta=false;
-         	UsuarioData ud=new UsuarioData();
-         	try {
-				if(ud.esPeliculaAlquilada(this,p))
-				{rta=true;}
-         		} 
-         	catch (ApplicationException | SQLException e) 
-         	{e.printStackTrace();}
-         	return rta;
-    }
-    
-    public Boolean alquilarPelicula(Pelicula p)
-    {   Boolean rta=false;
-    	UsuarioData ud=new UsuarioData();
-    	try {if(ud.grabarAlquiler(this,p))
-				{rta=true;}} 
-    	catch (ApplicationException | SQLException e)
-    	{e.printStackTrace();}
-     return rta;
-    }
+        
 
 	public String getFeContratacion()
 	{
 		return feContratacion;
 	}
 
-	public void setFeContratacion() 
-	{   UsuarioData u=new UsuarioData();
-		try {this.feContratacion = u.getFechaContratacion(this);}
-		catch (ApplicationException |SQLException  e)
-		{e.printStackTrace();} 
+	public void setFeContratacion(String feContratacion) 
+	{  
+		this.feContratacion = feContratacion;
 	}
-    
-    
+        
 }
 
 
