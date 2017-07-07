@@ -29,6 +29,7 @@ public class Alquilar extends HttpServlet
 		doGet(request, response);
 		Usuario u=new Usuario();
 		u.setNroUsuario(Long.parseLong(request.getSession(false).getAttribute("idUsuario").toString()));
+		u.setFeContratacion(request.getSession(false).getAttribute("feContratacionServicio").toString());
 		Plan pl=new Plan();
 		pl.setIdPlan(Integer.parseInt(request.getSession(false).getAttribute("idPlan").toString()));
 		pl.setCantPel(Integer.parseInt(request.getSession(false).getAttribute("cantPeliculas").toString()));
@@ -37,7 +38,7 @@ public class Alquilar extends HttpServlet
 		p.setCodPelicula(Long.parseLong(request.getParameter("btnAlquilar").toString().trim()));
 		Integer rta=ControladorServicioUs.AlquilarPel(u, p);
 	    request.getSession(false).setAttribute("rta",rta);
-	    response.sendRedirect(request.getSession(false).getAttribute("pagAc").toString());
+	    response.sendRedirect('"'+request.getSession(false).getAttribute("pagAc").toString()+'"');
 		
 	}
 

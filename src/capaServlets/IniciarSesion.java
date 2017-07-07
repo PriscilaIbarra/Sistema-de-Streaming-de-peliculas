@@ -43,6 +43,7 @@ public class IniciarSesion extends HttpServlet {
 			   { request.getSession(true).setAttribute("idUsuario",us.getNroUsuario());
 			     request.getSession(true).setAttribute("idPlan",us.getPlan().getIdPlan());
 			     request.getSession(true).setAttribute("cantPeliculas",us.getPlan().getCantPel());
+			     request.getSession(true).setAttribute("feContratacionServicio",us.getFeContratacion());
 	       		 response.sendRedirect("PanelPrincipal.jsp");}
 		       else{ rta="Usuario inhabilitado!!";
 			         request.getSession().setAttribute("rta",rta);
