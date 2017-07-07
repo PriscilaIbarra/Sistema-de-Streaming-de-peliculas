@@ -149,12 +149,13 @@
 	 	if(msj!=null)
 		{if(msj.compareTo("Usuario Registrado con exito!")==0)
 		{	
-			%><div id="mensaje"  class="alert alert-success">
-  			<%=msj %><a href="IniSesion.jsp"  class="close" data-dismiss="alert" aria-label="close">x</a></div>	<%	
+			%><br><div id="mensaje"  class="alert alert-success">
+  			<%=msj %><a href="IniSesion.jsp"  class="close" data-dismiss="alert" aria-label="close">x</a></div><br><%	
+  			
 	 	}
 	 	else
-	    {	%><div id="mensaje"  class="alert alert-danger">
-				<%=msj %><a href="index.html"  class="close" data-dismiss="alert" aria-label="close">x</a></div> <%
+	    {	%><br><div id="mensaje"  class="alert alert-danger">
+				<%=msj %><a href="index.html"  class="close" data-dismiss="alert" aria-label="close">x</a></div><br><%
 	    }
 		}
 	 	session.removeAttribute("msj");

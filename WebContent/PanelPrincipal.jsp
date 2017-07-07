@@ -31,6 +31,14 @@
 		   u.setNroUsuario(Long.parseLong(session.getAttribute("idUsuario").toString()));
 		   ArrayList<Pelicula>lp=cu.pelPlanCliente(u);
 		%>
+       
+       <script type="text/javascript">
+       function alquilar()
+       
+       
+       
+       </script>
+
 </head>
 <body>
   <h1 id="titulo"> GMOVIES</h1>  
@@ -67,21 +75,22 @@
  
  
 <br><br><br>
-
+	<% session.setAttribute("pagAc","PanelPrincipal.jsp"); %>	
     <div style="margin-left:270px;">   
     <% 	 if(lp!=null)
    		 {  		
  	 		  for(Pelicula p:lp)
- 	 		  {%>		
+ 	 		  {%>
+ 	 		  <form action="Alquilar" method="post">		
  			  <div style="margin-bottom:30px;" class="container-fluid col-md-6"> 
  			  <div><h4> <%=p.getTitulo() %></h4></div>
  			  <img style="width:215px;height:250px;" class="img-rounded col-md-4" align="left" src="<%=p.getImagen() %>">
  			  <textarea disabled style="background-color:#404040;border:none;" class="img-thumbnail" rows="12" ><%=p.getDescripcion() %></textarea>
  		      <br>
  			  <div class="col-md-6">
- 		      <button class="btn btn-primary" style="width:187px;">Alquilar</button>
+ 		      <button class="btn btn-primary" type="submit" name="btnAlquilar" value="<%=p.getCodPelicula() %>" style="width:187px;">Alquilar</button>
  			  </div>
- 			  </div><%	
+ 			  </div></form><%	
  			  }
     		
  	      }

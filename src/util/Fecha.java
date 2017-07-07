@@ -13,4 +13,13 @@ public class Fecha
 		return fecha; 
 	}
 	
+	public static String GetFecha()
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		sdf.setTimeZone( TimeZone.getTimeZone( "GMT-3" ) );
+		String fecha=sdf.format(new Date()).toString();
+		fecha.trim();
+		return fecha; 
+	}
+	
 }

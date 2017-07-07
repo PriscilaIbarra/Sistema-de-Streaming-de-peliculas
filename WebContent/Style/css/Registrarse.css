@@ -26,8 +26,9 @@ label{color:white;}
 		left:375px;
 		} 
 		
-#mensaje{width:30px;
+#mensaje{width:550px;
 		 height:45px;
 		 position:absolute;	
-		 top:785px;
-		 left:405px;}  
+		 text-align:center;
+		 top:-20px;
+		 left:18px;}  

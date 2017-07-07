@@ -34,9 +34,22 @@ public class ControladorServicioUs
     	return CatalogoDePeliculas.buscarPelPlan(u);
     }
     
-    public static Integer Alquilar(Usuario u, Pelicula p)
-    {
-    	
-    	return 0;
+    public static Integer AlquilarPel(Usuario u, Pelicula p)
+    {  
+    	//0-excede cantidad permitida de pel para alquilar
+    	//1-pelicula ya alquilada en el mes
+    	//2-Pelicula Alquilada con exito
+    	//3-Error al alquilar pelicula
+    	if(u.getCantPelAlqEnMes()<u.getPlan().getCantPel())
+    	{
+    		if(u.fueAlquiladaEnMes(p))
+    		{return 1;}	
+    		else
+    		{  if(u.alquilarPelicula(p))
+    		   {return 2;}
+    		   else{return 3;}
+    		}	
+    	}
+    	else{return 0;}
     }
 }
