@@ -41,7 +41,7 @@
 
 </head>
 <body>
-  <h1 id="titulo"> GMOVIES</h1>  
+ <h1 id="titulo"> GMOVIES</h1>  
  <div id="menu">
          <ul class="nav" style="color:#5cb85c;">
             <li class="active"><a href="#"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; Mis Peliculas</a></li>
@@ -96,6 +96,11 @@
  	      }
    	%>
 	</div>
+
+
+
+
+
 
 </body>
 </html>

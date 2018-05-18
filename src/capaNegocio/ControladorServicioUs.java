@@ -27,7 +27,12 @@ public class ControladorServicioUs
     }
     
     public static Integer AlquilarPel(Usuario u, Pelicula p) throws ApplicationException, SQLException
-    {   Integer rta=0;
+    {   //0-excede cantidad permitida de pel para alquilar
+		//1-pelicula ya alquilada en el mes
+		//2-Pelicula Alquilada con exito
+		//3-Error al alquilar pelicula
+    	  	
+    	Integer rta=0;
     	CatalogoDeAlquileres ca=new CatalogoDeAlquileres();
     	if(ca.getCantAlquileres(u)<u.getPlan().getCantPel())
     	{
@@ -41,12 +46,6 @@ public class ControladorServicioUs
     	}
     	
     	return rta;
-    	
-    	
-    	
-    	//0-excede cantidad permitida de pel para alquilar
-		//1-pelicula ya alquilada en el mes
-		//2-Pelicula Alquilada con exito
-			//3-Error al alquilar pelicula
+     	
     }
 }
